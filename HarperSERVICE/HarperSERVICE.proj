@@ -1,0 +1,12 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Target Name="PrecompileWeb">
+<AspNetCompiler
+VirtualPath="/HarperSERVICE"
+PhysicalPath="HarperSERVICE\"
+TargetPath="f:\staging\HarperSERVICE"
+Updateable="true"
+Force="true"
+Debug="true"
+/>
+</Target>
+</Project>

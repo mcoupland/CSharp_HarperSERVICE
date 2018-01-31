@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:typens="urn:GateKeeper" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" name="GateKeeper" targetNamespace="urn:GateKeeper" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:GateKeeper">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="argtype">
+        <xsd:all>
+          <xsd:element name="org" type="xsd:string" />
+          <xsd:element name="program_type_id" type="xsd:string" />
+          <xsd:element minOccurs="0" name="program_id" type="xsd:string" />
+          <xsd:element name="test_mode" type="xsd:string" />
+          <xsd:element minOccurs="0" name="as_partner" type="xsd:string" />
+          <xsd:element minOccurs="0" name="db_name" type="xsd:string" />
+          <xsd:element minOccurs="0" name="app_version" type="xsd:string" />
+          <xsd:element minOccurs="0" name="is_network_monitor" type="xsd:string" />
+          <xsd:element minOccurs="0" name="as_email" type="xsd:string" />
+          <xsd:element minOccurs="0" name="userid" type="xsd:string" />
+          <xsd:element minOccurs="0" name="pw" type="xsd:string" />
+          <xsd:element minOccurs="0" name="customer_number" type="xsd:string" />
+          <xsd:element minOccurs="0" name="zip" type="xsd:string" />
+          <xsd:element minOccurs="0" name="first" type="xsd:string" />
+          <xsd:element minOccurs="0" name="last" type="xsd:string" />
+          <xsd:element minOccurs="0" name="address" type="xsd:string" />
+          <xsd:element minOccurs="0" name="country" type="xsd:string" />
+          <xsd:element minOccurs="0" name="hashed_pw" type="xsd:string" />
+          <xsd:element minOccurs="0" name="check_pw" type="xsd:string" />
+          <xsd:element minOccurs="0" name="load_customer" type="xsd:string" />
+          <xsd:element minOccurs="0" name="load_history" type="xsd:string" />
+          <xsd:element minOccurs="0" name="validate_subscription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="load_renewal_offers" type="xsd:string" />
+          <xsd:element minOccurs="0" name="load_optin_list" type="xsd:string" />
+          <xsd:element minOccurs="0" name="offers_key_code" type="xsd:string" />
+          <xsd:element name="days_history" type="xsd:int" />
+          <xsd:element minOccurs="0" name="login_as" type="xsd:string" />
+          <xsd:element minOccurs="0" name="search_by_custno" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returntype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="success" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="error" type="typens:errortypeArray" />
+          <xsd:element minOccurs="0" name="response" type="typens:responsetype" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="errortypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:errortype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="responsetype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="USER_FOUND" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CUST_FOUND" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CUSTOMER_NUMBER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="USERID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AUTH" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ACCESS" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STATUS" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CUSTOMER_INFO" type="typens:customerinfotype" />
+          <xsd:element minOccurs="0" name="SHIP_TO" type="typens:shiptotype" />
+          <xsd:element minOccurs="0" name="ORDER_HISTORY" nillable="true" type="typens:orderhistorytypeArray" />
+          <xsd:element minOccurs="0" name="SUB_OFFERS" type="typens:suboffertypeArray" />
+          <xsd:element minOccurs="0" name="TIME_ELAPSED" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ROUNDTRIP_TIME" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MEMORY_USED" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PROTOCOL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="VERSION" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SERVER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="INFO" type="typens:stringArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="customerinfotype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="CUSTOMER_NUMBER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="FIRST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="MI" type="xsd:string" />
+          <xsd:element minOccurs="0" name="LAST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PROFESSIONAL_TITLE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="BUSINESS_NAME" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ADD1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ADD2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ADD3" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CITY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STATE_NAME" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ZIP" type="xsd:string" />
+          <xsd:element minOccurs="0" name="COUNTRY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PHONE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="TITLE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SUFFIX" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EPREF" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OPTIN" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ALTCITY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STATUS" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STATUS_DESC" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType nillable="true" name="orderhistorytype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="CATEGORY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PROD_CODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DESCRIPTION" type="xsd:string" />
+          <xsd:element minOccurs="0" name="QTY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="DATE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EXPIRE_DATE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="ISS_REM" type="xsd:string" />
+          <xsd:element minOccurs="0" name="RENEWAL_KEYCODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EPUB" type="xsd:string" />
+          <xsd:element minOccurs="0" name="H_CUST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="G_CUST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STATUS_FLAG" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IS_GIFT" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IS_DONOR" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType nillable="true" name="orderhistorytypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="typens:orderhistorytype" />
+            </xsd:sequence>
+            <xsd:attribute wsdl:arrayType="typens:orderhistorytype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="emaillisttype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="EMAIL_ID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CUSTOMER_NUMBER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_TYPE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_TYPE_DESC" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_ACTIVE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="emaillisttypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:emaillisttype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="optinlisttype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="EMAIL_ID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_TYPE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_TYPE_DESC" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EMAIL_ACTIVE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CUSTOMER_NUMBER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OPTIN" type="typens:optintypeArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="optinlisttypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:optinlisttype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="optintype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="EPTEXTID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EPDESC" type="xsd:string" />
+          <xsd:element minOccurs="0" name="OPTIN" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PRODUCT_LINE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EPTYPE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="EPTYPE_DESC" type="xsd:string" />
+          <xsd:element minOccurs="0" name="IS_DEFAULT" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="optintypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:optintype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="suboffertype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="KEY_CODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="PUBLICATION_CODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="AGENCY_CODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="COUNTRY_CODE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SUB_RENEWAL_FLAG" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SUBSCRIPTION_TERM" type="xsd:string" />
+          <xsd:element minOccurs="0" name="CASH_OR_CREDIT_OFFER" type="xsd:string" />
+          <xsd:element minOccurs="0" name="GROSS_VALUE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="START_DATE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="START_ISSUE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NUMBER_FREE_ISSUES" type="xsd:string" />
+          <xsd:element minOccurs="0" name="START_BILLING_ISSUE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NUMBER_GRACE_ISSUES" type="xsd:string" />
+          <xsd:element minOccurs="0" name="NUMBER_OF_INSTALLMENTS" type="xsd:string" />
+          <xsd:element minOccurs="0" name="POSTAGE" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="suboffertypeArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="typens:suboffertype[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="shiptotype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="SBUSINESS" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SADDR1" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SADDR2" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SADDR3" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SCITY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SST" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SZIP" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SCOUNTRY" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SPHONE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="STITLE" type="xsd:string" />
+          <xsd:element minOccurs="0" name="SSUFFIX" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="errortype">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="errmsg" type="typens:stringArray" />
+          <xsd:element minOccurs="0" name="errno" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="stringArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="process_wsdl">
+    <wsdl:part name="args" type="typens:argtype" />
+  </wsdl:message>
+  <wsdl:message name="process_wsdlResponse">
+    <wsdl:part name="process_wsdlReturn" type="typens:returntype" />
+  </wsdl:message>
+  <wsdl:portType name="process_wsdl_classPortType">
+    <wsdl:operation name="process_wsdl">
+      <documentation>
+				Web Service Processor
+			</documentation>
+      <wsdl:input message="typens:process_wsdl" />
+      <wsdl:output message="typens:process_wsdlResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="process_wsdl_classBinding" type="typens:process_wsdl_classPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="process_wsdl">
+      <soap:operation soapAction="urn:process_wsdl_classAction" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:GateKeeper" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:GateKeeper" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GateKeeperService">
+    <wsdl:port name="process_wsdl_classPort" binding="typens:process_wsdl_classBinding">
+      <soap:address location="https://webservices.strategicfulfillment.com/websvcapps/services/https/process_wsdl.php?wsdlfile=gate_keeper" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

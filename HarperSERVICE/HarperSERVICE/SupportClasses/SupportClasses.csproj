@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{373A9609-888B-403D-8382-5C1FC48E0753}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupportClasses</RootNamespace>
+    <AssemblyName>SupportClasses</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SupportClasses.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HarperCRYPTO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HarperCRYPTO\HarperCRYPTO\bin\Debug\HarperCRYPTO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="CreditCard.cs" />
+    <Compile Include="InvalidInputException.cs" />
+    <Compile Include="EventLogger.cs" />
+    <Compile Include="Mailer.cs" />
+    <Compile Include="PasswordGenerator.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Responses and Requests\AHResponse.cs" />
+    <Compile Include="Responses and Requests\CustomerUpdate\Abstract\CustomerUpdateServiceResponse.cs" />
+    <Compile Include="Responses and Requests\BaseResponse.cs" />
+    <Compile Include="Responses and Requests\CreditCardProcessing\CreditCardServiceResponse.cs" />
+    <Compile Include="Responses and Requests\CustomerUpdate\Abstract\CustomerUpdateServiceRequest.cs" />
+    <Compile Include="Responses and Requests\CreditCardProcessing\CreditCardServiceRequest.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Abstract\GatekeeperServiceResponse.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Request\GetMemberByUserNameRequest.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Request\GetOfferRequest.cs" />
+    <Compile Include="Responses and Requests\Heartbeat\PingRequest.cs" />
+    <Compile Include="Responses and Requests\ReferralResponse.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Response\CreateLoginResponse.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Response\LoginResponse.cs" />
+    <Compile Include="Responses and Requests\FatalErrorResponse.cs" />
+    <Compile Include="Responses and Requests\SubOrderInsert\SubscriptionServiceRequest.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Request\CreateLoginRequest.cs" />
+    <Compile Include="Responses and Requests\SubOrderInsert\SubscriptionServiceResponse.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Request\GetMemberByMemberIdRequest.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Abstract\GatekeeperServiceRequest.cs" />
+    <Compile Include="Responses and Requests\CustomerUpdate\Request\UpdateMemberRequest.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Request\UpdatePasswordRequest.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Request\UpdateUsernameRequest.cs" />
+    <Compile Include="Member.cs" />
+    <Compile Include="EmailResultType.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Response\GetMemberResponse.cs" />
+    <Compile Include="Responses and Requests\Gatekeeper\Request\LoginRequest.cs" />
+    <Compile Include="OptinResults.cs" />
+    <Compile Include="Subscription.cs" />
+    <Compile Include="Responses and Requests\Heartbeat\PingResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses and Requests\CustomerUpdate\Response\UpdateMemberResponse.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Response\UpdateUsernameResponse.cs" />
+    <Compile Include="RenewalOffer.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Response\UpdatePasswordResponse.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Abstract\UserMaintenanceServiceRequest.cs" />
+    <Compile Include="Responses and Requests\UserMaint\Abstract\UserMaintenanceServiceResponse.cs" />
+    <Compile Include="SupportData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupportData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities.cs" />
+    <Compile Include="SubscriptionValidation.cs" />
+    <Compile Include="Responses and Requests\SFGRequest.cs" />
+    <Compile Include="Responses and Requests\SFGResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SupportClasses.dll" />
+    <Content Include="bin\Debug\SupportClasses.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SupportData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SupportData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SupportData.dbml.layout">
+      <DependentUpon>SupportData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HarperLINQ\HarperLINQ\HarperLINQ.csproj">
+      <Project>{54FA7063-CB8A-4417-A568-E0872D87CFE9}</Project>
+      <Name>HarperLINQ</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

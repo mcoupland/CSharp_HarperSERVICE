@@ -1,0 +1,69 @@
+<publishData>
+  <publishTarget publishUrl="C:\local-publish\HarperSERVICE\">
+    <file relUrl="MailService.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="bin/HarperACL.pdb" publishTime="07/11/2012 08:32:44" />
+    <file relUrl="bin/MemberServices.pdb" publishTime="07/11/2012 08:32:45" />
+    <file relUrl="CustomerService.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="MembershipService.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="SecureServices.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="bin/HarperLINQ.pdb" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="Web.config" publishTime="07/05/2012 12:07:09" />
+    <file relUrl="bin/HarperCRYPTO.pdb" publishTime="07/05/2012 08:27:17" />
+    <file relUrl="bin/HarperACL.dll" publishTime="07/11/2012 08:32:44" />
+    <file relUrl="bin/SFGWrapper.pdb" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="bin/BusinessLogic.pdb" publishTime="07/11/2012 08:32:44" />
+    <file relUrl="bin/MemberServices.xml" publishTime="07/11/2012 08:32:45" />
+    <file relUrl="bin/MemberServices.dll" publishTime="07/11/2012 08:32:45" />
+    <file relUrl="bin/BusinessLogic.dll" publishTime="07/11/2012 08:32:44" />
+    <file relUrl="bin/HarperLINQ.dll" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="bin/SFGWrapper.xml" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="bin/SupportClasses.xml" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="MessageLists.xml" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="NewsletterService.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="MobileServices.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="bin/SupportClasses.pdb" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="bin/SupportClasses.dll" publishTime="07/11/2012 08:32:43" />
+    <file relUrl="LoggingService.asmx" publishTime="05/31/2012 16:42:54" />
+    <file relUrl="bin/HarperCRYPTO.dll" publishTime="07/05/2012 08:27:17" />
+    <file relUrl="bin/SFGWrapper.dll" publishTime="07/11/2012 08:32:43" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\local-publish\harper-web-services\">
+    <file relUrl="bin/SupportClasses.xml" publishTime="04/04/2011 07:48:24" />
+    <file relUrl="bin/MemberServices.pdb" publishTime="04/04/2011 11:38:46" />
+    <file relUrl="SecureServices.asmx" publishTime="03/28/2011 13:38:12" />
+    <file relUrl="bin/SFGWrapper.xml" publishTime="04/04/2011 07:48:25" />
+    <file relUrl="Web.config" publishTime="03/28/2011 13:38:12" />
+    <file relUrl="MembershipService.asmx" publishTime="03/28/2011 13:38:12" />
+    <file relUrl="bin/SFGWrapper.pdb" publishTime="04/04/2011 07:31:04" />
+    <file relUrl="bin/BusinessLogic.pdb" publishTime="04/04/2011 11:38:44" />
+    <file relUrl="bin/MemberServices.xml" publishTime="04/04/2011 11:38:46" />
+    <file relUrl="bin/MemberServices.dll" publishTime="04/04/2011 11:38:46" />
+    <file relUrl="bin/BusinessLogic.dll" publishTime="04/04/2011 11:38:44" />
+    <file relUrl="bin/SFGWrapper.dll" publishTime="04/04/2011 07:31:05" />
+    <file relUrl="bin/AndrewHarper.Cryptography.pdb" publishTime="03/25/2011 16:05:45" />
+    <file relUrl="MessageLists.xml" publishTime="03/28/2011 13:38:12" />
+    <file relUrl="bin/SupportClasses.dll" publishTime="04/04/2011 07:31:04" />
+    <file relUrl="bin/SupportClasses.pdb" publishTime="04/04/2011 07:31:03" />
+    <file relUrl="LoggingService.asmx" publishTime="04/01/2011 09:13:55" />
+    <file relUrl="bin/AndrewHarper.Cryptography.dll" publishTime="03/25/2011 16:05:45" />
+  </publishTarget>
+  <publishTarget publishUrl="C:\local-publish\member-services\">
+    <file relUrl="bin/SupportClasses.xml" publishTime="03/25/2011 16:05:46" />
+    <file relUrl="bin/MemberServices.pdb" publishTime="03/25/2011 16:05:49" />
+    <file relUrl="SecureServices.asmx" publishTime="01/31/2011 10:36:08" />
+    <file relUrl="bin/SFGWrapper.xml" publishTime="03/25/2011 16:05:47" />
+    <file relUrl="Web.config" publishTime="03/23/2011 14:30:35" />
+    <file relUrl="MembershipService.asmx" publishTime="01/04/2011 17:41:28" />
+    <file relUrl="bin/SFGWrapper.pdb" publishTime="03/25/2011 16:05:47" />
+    <file relUrl="bin/BusinessLogic.pdb" publishTime="03/25/2011 16:05:47" />
+    <file relUrl="bin/MemberServices.dll" publishTime="03/25/2011 16:05:49" />
+    <file relUrl="bin/BusinessLogic.dll" publishTime="03/25/2011 16:05:47" />
+    <file relUrl="bin/SFGWrapper.dll" publishTime="03/25/2011 16:05:47" />
+    <file relUrl="bin/AndrewHarper.Cryptography.pdb" publishTime="03/25/2011 16:05:45" />
+    <file relUrl="MessageLists.xml" publishTime="01/12/2011 21:19:24" />
+    <file relUrl="bin/SupportClasses.dll" publishTime="03/25/2011 16:05:46" />
+    <file relUrl="bin/SupportClasses.pdb" publishTime="03/25/2011 16:05:46" />
+    <file relUrl="bin/MemberServices.xml" publishTime="03/25/2011 16:05:49" />
+    <file relUrl="bin/AndrewHarper.Cryptography.dll" publishTime="03/25/2011 16:05:45" />
+  </publishTarget>
+</publishData>

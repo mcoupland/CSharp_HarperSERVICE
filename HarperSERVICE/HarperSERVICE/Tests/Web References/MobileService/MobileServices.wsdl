@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://andrewharper.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://andrewharper.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://andrewharper.com/">
+      <s:element name="GetHotel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HotelId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelResult" type="tns:Hotel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Hotel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="HotelId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberPrivileges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Overview" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rates" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province_State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Thumbnails" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsAlliance" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rating" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialOfferIds" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchHotels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province_Region" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchHotelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchHotelsResult" type="tns:ArrayOfHotel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHotel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Hotel" nillable="true" type="tns:Hotel" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchSpecialOffers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Province_Region" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchSpecialOffersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSpecialOffersResult" type="tns:ArrayOfSpecialOffer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSpecialOffer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecialOffer" nillable="true" type="tns:SpecialOffer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecialOffer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OfferId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HotelId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Images" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Thumbnails" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitContactForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HotelName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HotelLocation" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="RoomCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckInDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOutDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsMember" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitContactFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitContactFormResult" type="tns:MobileServicesResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MobileServicesResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsSuccess" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHotelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotel" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchHotelsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchHotels" />
+  </wsdl:message>
+  <wsdl:message name="SearchHotelsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchHotelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchSpecialOffersSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchSpecialOffers" />
+  </wsdl:message>
+  <wsdl:message name="SearchSpecialOffersSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchSpecialOffersResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitContactFormSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitContactForm" />
+  </wsdl:message>
+  <wsdl:message name="SubmitContactFormSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitContactFormResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MobileServicesSoap">
+    <wsdl:operation name="GetHotel">
+      <wsdl:input message="tns:GetHotelSoapIn" />
+      <wsdl:output message="tns:GetHotelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchHotels">
+      <wsdl:input message="tns:SearchHotelsSoapIn" />
+      <wsdl:output message="tns:SearchHotelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSpecialOffers">
+      <wsdl:input message="tns:SearchSpecialOffersSoapIn" />
+      <wsdl:output message="tns:SearchSpecialOffersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitContactForm">
+      <wsdl:input message="tns:SubmitContactFormSoapIn" />
+      <wsdl:output message="tns:SubmitContactFormSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobileServicesSoap" type="tns:MobileServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotel">
+      <soap:operation soapAction="http://andrewharper.com/GetHotel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchHotels">
+      <soap:operation soapAction="http://andrewharper.com/SearchHotels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSpecialOffers">
+      <soap:operation soapAction="http://andrewharper.com/SearchSpecialOffers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitContactForm">
+      <soap:operation soapAction="http://andrewharper.com/SubmitContactForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MobileServicesSoap12" type="tns:MobileServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotel">
+      <soap12:operation soapAction="http://andrewharper.com/GetHotel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchHotels">
+      <soap12:operation soapAction="http://andrewharper.com/SearchHotels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSpecialOffers">
+      <soap12:operation soapAction="http://andrewharper.com/SearchSpecialOffers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitContactForm">
+      <soap12:operation soapAction="http://andrewharper.com/SubmitContactForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobileServices">
+    <wsdl:port name="MobileServicesSoap" binding="tns:MobileServicesSoap">
+      <soap:address location="http://localhost:3105/MobileServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MobileServicesSoap12" binding="tns:MobileServicesSoap12">
+      <soap12:address location="http://localhost:3105/MobileServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

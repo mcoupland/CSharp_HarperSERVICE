@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="CreateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_memberid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateUserResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BaseResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypedResponse" type="tns:SFGResponse" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Messages" type="tns:Message" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DebugLog" type="tns:Message" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DebugStringLog" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SFGResponse" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Info" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemoryUsed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OptinResults" type="tns:OptinResults" />
+          <s:element minOccurs="0" maxOccurs="1" name="Protocol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoundtripTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeElapsed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OptinResults">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmailId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EpTextId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductLine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Optin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessSpecified" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubscriptionServiceResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="MemberEmailResults" type="tns:EmailResultType" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="MemberOptinResults" type="tns:OptinResults" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="GifteeEmailResults" type="tns:EmailResultType" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="GifteeOptinResults" type="tns:OptinResults" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderAdded" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MemberUpdated" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EmailResultType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmailId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailActive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessSpecified" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdateAll" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserMaintenanceServiceResponse" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateSucceeded" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UpdateUsernameResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UserMaintenanceServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UpdatePasswordResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UserMaintenanceServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreateLoginResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UserMaintenanceServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AHResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerUpdateServiceResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberUpdated" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UpdateMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CustomerUpdateServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreditCardServiceResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionSucceeded" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="VerifoneRoutingId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResponseCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MemberUpdated" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="EmailResults" type="tns:EmailResultType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PingResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FatalErrorResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="GatekeeperServiceResponse" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="WebAccountFound" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="MemberFound" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Authenticated" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="SubscriptionValidationData" type="tns:SubscriptionValidation" />
+              <s:element minOccurs="0" maxOccurs="1" name="MemberData" type="tns:Member" />
+              <s:element minOccurs="0" maxOccurs="1" name="RenewalOffers" type="tns:ArrayOfRenewalOffer" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShipToAddress" type="tns:Address" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SubscriptionValidation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Access" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Member">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Subscriptions" type="tns:Subscription" />
+          <s:element minOccurs="1" maxOccurs="1" name="OptIn" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CusId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CusCustNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScreenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Salutation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleInitial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfessionalTitle" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AltCity" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Subscription">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Category" type="tns:SubscriptionCategory" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpireDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuesRemaining" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RenewalKeycode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EPub" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscribingMember" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GiftRecipient" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutstandingBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusFlag" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsGift" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDonor" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SubscriptionCategory">
+        <s:restriction base="s:string">
+          <s:enumeration value="Publication" />
+          <s:enumeration value="Catalog" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfRenewalOffer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RenewalOffer" nillable="true" type="tns:RenewalOffer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RenewalOffer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="KeyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubRenewalFlag" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionTerm" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CashOrCreditOffer" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrossValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartIssue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberFreeIssues" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartBillingIssue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberGraceIssues" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfInstallments" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Postage" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GetMemberResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:GatekeeperServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoginResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:GatekeeperServiceResponse" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReferralResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:SFGResponse">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="referralid" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Message">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SfgCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SfgName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SfgMessages" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AhCode" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="AhName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AhMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MethodName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageSource" type="tns:MessageSources" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MessageSources">
+        <s:restriction base="s:string">
+          <s:enumeration value="AndrewHarper" />
+          <s:enumeration value="SfgCommon" />
+          <s:enumeration value="Unspecified" />
+          <s:enumeration value="CreditCard" />
+          <s:enumeration value="CustomerUpdate" />
+          <s:enumeration value="Gatekeeper" />
+          <s:enumeration value="SubOrderInsert" />
+          <s:enumeration value="UserMaint" />
+          <s:enumeration value="Heartbeat" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="UpdateUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserNameResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_newpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePasswordResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="middleInitial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="professionalTitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="optIn" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="altCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="hashed_ccExpMonth" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="hashed_ccExpYear" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:float" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_ccPostalCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChargeCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChargeCardResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForgotPasswordReset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ForgotPasswordResetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ForgotPasswordResetResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hashed_cusid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="screenname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSubscription">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateSubscriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSubscriptionResult" type="tns:BaseResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserName" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChargeCardSoapIn">
+    <wsdl:part name="parameters" element="tns:ChargeCard" />
+  </wsdl:message>
+  <wsdl:message name="ChargeCardSoapOut">
+    <wsdl:part name="parameters" element="tns:ChargeCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="ForgotPasswordResetSoapIn">
+    <wsdl:part name="parameters" element="tns:ForgotPasswordReset" />
+  </wsdl:message>
+  <wsdl:message name="ForgotPasswordResetSoapOut">
+    <wsdl:part name="parameters" element="tns:ForgotPasswordResetResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubscriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSubscription" />
+  </wsdl:message>
+  <wsdl:message name="CreateSubscriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SecureServicesSoap">
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserSoapIn" />
+      <wsdl:output message="tns:CreateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserName">
+      <wsdl:input message="tns:UpdateUserNameSoapIn" />
+      <wsdl:output message="tns:UpdateUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input message="tns:UpdatePasswordSoapIn" />
+      <wsdl:output message="tns:UpdatePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChargeCard">
+      <wsdl:input message="tns:ChargeCardSoapIn" />
+      <wsdl:output message="tns:ChargeCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPasswordReset">
+      <wsdl:input message="tns:ForgotPasswordResetSoapIn" />
+      <wsdl:output message="tns:ForgotPasswordResetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscription">
+      <wsdl:input message="tns:CreateSubscriptionSoapIn" />
+      <wsdl:output message="tns:CreateSubscriptionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SecureServicesSoap" type="tns:SecureServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserName">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap:operation soapAction="http://tempuri.org/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeCard">
+      <soap:operation soapAction="http://tempuri.org/ChargeCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPasswordReset">
+      <soap:operation soapAction="http://tempuri.org/ForgotPasswordReset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscription">
+      <soap:operation soapAction="http://tempuri.org/CreateSubscription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SecureServicesSoap12" type="tns:SecureServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap12:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserName">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChargeCard">
+      <soap12:operation soapAction="http://tempuri.org/ChargeCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPasswordReset">
+      <soap12:operation soapAction="http://tempuri.org/ForgotPasswordReset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscription">
+      <soap12:operation soapAction="http://tempuri.org/CreateSubscription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SecureServices">
+    <wsdl:port name="SecureServicesSoap" binding="tns:SecureServicesSoap">
+      <soap:address location="http://localhost:3105/SecureServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SecureServicesSoap12" binding="tns:SecureServicesSoap12">
+      <soap12:address location="http://localhost:3105/SecureServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

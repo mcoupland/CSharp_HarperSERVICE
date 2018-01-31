@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="CustomerUpdate" targetNamespace="urn:CustomerUpdate" xmlns:typens="urn:CustomerUpdate" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	<types>
+		<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:CustomerUpdate">
+			<import namespace="http://schemas.xmlsoap.org/soap/encoding/" />	 
+			<xsd:complexType name="argtype">
+				<xsd:all>
+					<xsd:element name="org" type="xsd:string"/>
+					<xsd:element name="program_type_id" type="xsd:string"/>
+					<xsd:element name="program_id" minOccurs="0" type="xsd:string"/>					
+					<xsd:element name="test_mode" type="xsd:string"/>
+					<xsd:element name="as_partner" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="db_name" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="app_version" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="is_network_monitor" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="as_email" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="first" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="mi" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="last" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="business_name" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="professional_title" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="add1" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="add2" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="add3" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="city" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="st" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="zip" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="country" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="phone" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="fax" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="title" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="suffix" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="email" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="altcity" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="optin" minOccurs="0" nillable="true" type="xsd:string"/>
+					<xsd:element name="customer_number" type="xsd:string"/>
+					<!--<xsd:element name="email_list" minOccurs="0" type="typens:emaillisttypeArray"/>
+					<xsd:element name="optin_list" minOccurs="0" type="typens:optinlisttypeArray"/>			-->		
+				</xsd:all>
+			</xsd:complexType>
+			
+			<xsd:complexType name="emaillisttype">
+				<xsd:all>
+					<xsd:element name="email_id" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="customer_number" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email_type" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email_active" minOccurs="0" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>		
+			<xsd:complexType name="emaillisttypeArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:emaillisttype[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>	
+			
+			<xsd:complexType name="optinlisttype">
+				<xsd:all>
+					<xsd:element name="email_id" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="customer_number" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="eptextid" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="eptype" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="product_line" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="optin" minOccurs="0" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>		
+			<xsd:complexType name="optinlisttypeArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:optinlisttype[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>			
+			
+			<xsd:complexType name="emailresulttype">
+				<xsd:all>
+					<xsd:element name="email_id" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="customer_number" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email_type" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email_active" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="success" minOccurs="0" type="xsd:boolean"/>
+					<xsd:element name="errors" minOccurs="0" type="typens:stringArray"/>
+					<xsd:element name="source" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="update_all" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="process_type" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email_status" minOccurs="0" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>		
+			<xsd:complexType name="emailresulttypeArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:emailresulttype[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>	
+			
+			<xsd:complexType name="optinresulttype">
+				<xsd:all>
+					<xsd:element name="email_id" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="email" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="customer_number" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="eptextid" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="eptype" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="product_line" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="optin" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="success" minOccurs="0" type="xsd:boolean"/>
+					<xsd:element name="errors" minOccurs="0" type="typens:stringArray"/>
+					<xsd:element name="source" minOccurs="0" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>		
+			<xsd:complexType name="optinresulttypeArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:optinresulttype[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>	
+						
+			<xsd:complexType name="returntype">
+				<xsd:all>
+					<xsd:element name="success" minOccurs="0" type="xsd:boolean"/>
+					<xsd:element name="error" minOccurs="0" type="typens:errortypeArray"/>
+					<xsd:element name="response" minOccurs="0" type="typens:responsetype"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="errortypeArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="typens:errortype[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name="responsetype">
+				<xsd:all>
+					<xsd:element name="CUSTOMER_UPDATED" minOccurs="0" type="xsd:string"/>
+					<!--<xsd:element name="EMAIL_RESULTS" minOccurs="0" type="typens:emailresulttypeArray"/>
+					<xsd:element name="OPTIN_RESULTS" minOccurs="0" type="typens:optinresulttypeArray"/>	-->				
+					<xsd:element name="TIME_ELAPSED" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="ROUNDTRIP_TIME" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="MEMORY_USED" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="PROTOCOL" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="VERSION" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="SERVER" minOccurs="0" type="xsd:string"/>
+					<xsd:element name="INFO" minOccurs="0" type="typens:stringArray"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="errortype">
+				<xsd:all>
+					<xsd:element name="errmsg" minOccurs="0" type="typens:stringArray"/>
+					<xsd:element name="errno" minOccurs="0" type="xsd:string"/>
+				</xsd:all>
+			</xsd:complexType>
+			<xsd:complexType name="stringArray">
+				<xsd:complexContent>
+					<xsd:restriction base="soapenc:Array">
+						<xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+					</xsd:restriction>
+				</xsd:complexContent>
+			</xsd:complexType>
+		</xsd:schema>
+	</types>
+	<message name="process_wsdl">
+		<part name="args" type="typens:argtype"/>
+	</message>
+	<message name="process_wsdlResponse">
+		<part name="process_wsdlReturn" type="typens:returntype"/>
+	</message>
+	<portType name="process_wsdl_classPortType">
+		<operation name="process_wsdl">
+			<documentation>
+				Web Service Processor
+			</documentation>
+			<input message="typens:process_wsdl"/>
+			<output message="typens:process_wsdlResponse"/>
+		</operation>
+	</portType>
+	<binding name="process_wsdl_classBinding" type="typens:process_wsdl_classPortType">
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="process_wsdl">
+			<soap:operation soapAction="urn:process_wsdl_classAction"/>
+			<input>
+				<soap:body namespace="urn:CustomerUpdate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</input>
+			<output>
+				<soap:body namespace="urn:CustomerUpdate" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="CustomerUpdateService">
+		<port name="process_wsdl_classPort" binding="typens:process_wsdl_classBinding">
+			<soap:address location="https://webservices.strategicfulfillment.com/websvcapps/services/https/process_wsdl.php?wsdlfile=customer_update"/>
+		</port>
+	</service>
+</definitions>

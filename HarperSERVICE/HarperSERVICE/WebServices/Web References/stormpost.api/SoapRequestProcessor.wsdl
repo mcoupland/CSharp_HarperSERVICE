@@ -1,0 +1,1669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:impl="http://skylist.com/services/SoapRequestProcessor" targetNamespace="http://skylist.com/services/SoapRequestProcessor" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://skylist.com/services/SoapRequestProcessor">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="ArrayOf_xsd_int">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:int[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_soapenc_string">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="soapenc:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="authentication">
+        <xsd:all>
+          <xsd:element name="username" type="xsd:string" />
+          <xsd:element name="password" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="IdAndTitle">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:int" />
+          <xsd:element name="title" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_IdAndTitle">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:IdAndTitle[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Mailing">
+        <xsd:all>
+          <xsd:element name="title" type="soapenc:string" />
+          <xsd:element name="externalID" nillable="true" type="soapenc:string" />
+          <xsd:element name="comment" nillable="true" type="soapenc:string" />
+          <xsd:element name="protocol" nillable="true" type="soapenc:string" />
+          <xsd:element name="campaignID" type="xsd:int" />
+          <xsd:element name="brandID" type="xsd:int" />
+          <xsd:element name="listID" nillable="true" type="xsd:int" />
+          <xsd:element name="conditionOperator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition1Column" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition1Operator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition1Value" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition2Column" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition2Operator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition2Value" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition3Column" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition3Operator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition3Value" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition4Column" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition4Operator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition4Value" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition5Column" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition5Operator" nillable="true" type="soapenc:string" />
+          <xsd:element name="condition5Value" nillable="true" type="soapenc:string" />
+          <xsd:element name="maxRecipients" nillable="true" type="xsd:int" />
+          <xsd:element name="seeds" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="blockDomains" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="purgeLists" nillable="true" type="impl:ArrayOf_xsd_int" />
+          <xsd:element name="purgeSuppressionLists" nillable="true" type="impl:ArrayOf_xsd_int" />
+          <xsd:element name="queueTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="trackType" nillable="true" type="soapenc:string" />
+          <xsd:element name="openTrackType" nillable="true" type="soapenc:string" />
+          <xsd:element name="clickStreamType" nillable="true" type="soapenc:string" />
+          <xsd:element name="advertiserName" nillable="true" type="soapenc:string" />
+          <xsd:element name="unsubReportsAddress" nillable="true" type="soapenc:string" />
+          <xsd:element name="unsubReportsSize" nillable="true" type="xsd:int" />
+          <xsd:element name="priority" nillable="true" type="soapenc:string" />
+          <xsd:element name="additionalLists" nillable="true" type="impl:ArrayOf_xsd_int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FacebookContent">
+        <xsd:all>
+          <xsd:element name="type" type="soapenc:string" />
+          <xsd:element name="title" nillable="true" type="soapenc:string" />
+          <xsd:element name="body" nillable="true" type="soapenc:string" />
+          <xsd:element name="image1" nillable="true" type="soapenc:string" />
+          <xsd:element name="url1" nillable="true" type="soapenc:string" />
+          <xsd:element name="image2" nillable="true" type="soapenc:string" />
+          <xsd:element name="url2" nillable="true" type="soapenc:string" />
+          <xsd:element name="image3" nillable="true" type="soapenc:string" />
+          <xsd:element name="url3" nillable="true" type="soapenc:string" />
+          <xsd:element name="image4" nillable="true" type="soapenc:string" />
+          <xsd:element name="url4" nillable="true" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="EmailContent">
+        <xsd:all>
+          <xsd:element name="subject" type="soapenc:string" />
+          <xsd:element name="fromEmail" type="soapenc:string" />
+          <xsd:element name="fromName" nillable="true" type="soapenc:string" />
+          <xsd:element name="toEmail" type="soapenc:string" />
+          <xsd:element name="toName" nillable="true" type="soapenc:string" />
+          <xsd:element name="replyToEmail" nillable="true" type="soapenc:string" />
+          <xsd:element name="replyToName" nillable="true" type="soapenc:string" />
+          <xsd:element name="charset" nillable="true" type="soapenc:string" />
+          <xsd:element name="encoding" nillable="true" type="soapenc:string" />
+          <xsd:element name="htmlContent" nillable="true" type="soapenc:string" />
+          <xsd:element name="textContent" nillable="true" type="soapenc:string" />
+          <xsd:element name="unsubContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="replyContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="headerContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="footerContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="forwardToFriendContentID" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SMSContent">
+        <xsd:all>
+          <xsd:element name="useUnicode" nillable="true" type="xsd:boolean" />
+          <xsd:element name="content" nillable="true" type="soapenc:string" />
+          <xsd:element name="headerContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="footerContentID" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SendTemplateBean">
+        <xsd:all>
+          <xsd:element name="title" nillable="true" type="soapenc:string" />
+          <xsd:element name="externalID" nillable="true" type="soapenc:string" />
+          <xsd:element name="subject" nillable="true" type="soapenc:string" />
+          <xsd:element name="fromEmail" nillable="true" type="soapenc:string" />
+          <xsd:element name="fromName" nillable="true" type="soapenc:string" />
+          <xsd:element name="toEmail" nillable="true" type="soapenc:string" />
+          <xsd:element name="toName" nillable="true" type="soapenc:string" />
+          <xsd:element name="replyToEmail" nillable="true" type="soapenc:string" />
+          <xsd:element name="replyToName" nillable="true" type="soapenc:string" />
+          <xsd:element name="encoding" nillable="true" type="soapenc:string" />
+          <xsd:element name="charset" nillable="true" type="soapenc:string" />
+          <xsd:element name="blockDomains" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="trackType" nillable="true" type="soapenc:string" />
+          <xsd:element name="openTrackType" nillable="true" type="soapenc:string" />
+          <xsd:element name="clickStreamType" nillable="true" type="soapenc:string" />
+          <xsd:element name="purgeLists" nillable="true" type="impl:ArrayOf_xsd_int" />
+          <xsd:element name="purgeSuppressionLists" nillable="true" type="impl:ArrayOf_xsd_int" />
+          <xsd:element name="campaignID" nillable="true" type="xsd:int" />
+          <xsd:element name="brandID" nillable="true" type="xsd:int" />
+          <xsd:element name="replyContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="unsubContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="footerContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="headerContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="forwardFriendContentID" nillable="true" type="xsd:int" />
+          <xsd:element name="advertiserName" nillable="true" type="soapenc:string" />
+          <xsd:element name="unsubReportsAddress" nillable="true" type="soapenc:string" />
+          <xsd:element name="unsubReportsSize" nillable="true" type="xsd:int" />
+          <xsd:element name="enabled" type="xsd:boolean" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="MailingPartReport">
+        <xsd:all>
+          <xsd:element name="part" type="soapenc:string" />
+          <xsd:element name="numTrackedUrls" type="xsd:int" />
+          <xsd:element name="totalClicks" type="xsd:int" />
+          <xsd:element name="uniqueClicks" type="xsd:int" />
+          <xsd:element name="uniqueUsers" type="xsd:int" />
+          <xsd:element name="totalOpens" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_MailingPartReport">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:MailingPartReport[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="LinkReport">
+        <xsd:all>
+          <xsd:element name="linkID" type="xsd:int" />
+          <xsd:element name="url" type="soapenc:string" />
+          <xsd:element name="part" type="soapenc:string" />
+          <xsd:element name="totalClicks" type="xsd:int" />
+          <xsd:element name="uniqueClicks" type="xsd:int" />
+          <xsd:element name="successRate" type="xsd:double" />
+          <xsd:element name="totalCSClicks" type="xsd:int" />
+          <xsd:element name="totalCSAmount" type="xsd:double" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_LinkReport">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:LinkReport[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DetailedMailingReport">
+        <xsd:all>
+          <xsd:element name="countNumRecips" type="xsd:boolean" />
+          <xsd:element name="mailingID" type="xsd:int" />
+          <xsd:element name="mailingTitle" type="soapenc:string" />
+          <xsd:element name="customerReferenceNumber" type="soapenc:string" />
+          <xsd:element name="mailingSubject" type="soapenc:string" />
+          <xsd:element name="campaignTitle" type="soapenc:string" />
+          <xsd:element name="campaignReferenceNumber" type="soapenc:string" />
+          <xsd:element name="listTitle" type="soapenc:string" />
+          <xsd:element name="brandTitle" type="soapenc:string" />
+          <xsd:element name="contents" nillable="true" type="soapenc:string" />
+          <xsd:element name="sendTemplateID" type="xsd:int" />
+          <xsd:element name="blockDomains" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="additionalLists" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="purgeLists" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="purgeMailings" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="suppressionLists" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="createdDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="sentTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="sendStartTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="sendFinishTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="queueTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="totalQueueTime" type="xsd:int" />
+          <xsd:element name="maxRecips" type="xsd:int" />
+          <xsd:element name="clickStreamType" type="soapenc:string" />
+          <xsd:element name="mailingStatus" type="soapenc:string" />
+          <xsd:element name="retriesRemaining" type="xsd:int" />
+          <xsd:element name="archived" type="xsd:boolean" />
+          <xsd:element name="queueComment" type="soapenc:string" />
+          <xsd:element name="aggregateDeliveryCounts" type="soapenc:boolean" />
+          <xsd:element name="scheduledCount" type="xsd:int" />
+          <xsd:element name="failedCount" type="xsd:int" />
+          <xsd:element name="failedPercent" type="xsd:double" />
+          <xsd:element name="deliveredCount" type="xsd:int" />
+          <xsd:element name="deliveredPercent" type="xsd:double" />
+          <xsd:element name="unsentCount" type="xsd:int" />
+          <xsd:element name="unsentPercent" type="xsd:double" />
+          <xsd:element name="softCount" type="xsd:int" />
+          <xsd:element name="softPercent" type="xsd:double" />
+          <xsd:element name="hardCount" type="xsd:int" />
+          <xsd:element name="hardPercent" type="xsd:double" />
+          <xsd:element name="blockedCount" type="xsd:int" />
+          <xsd:element name="blockedPercent" type="xsd:double" />
+          <xsd:element name="totalBounceCount" type="xsd:int" />
+          <xsd:element name="totalBouncePercent" type="xsd:double" />
+          <xsd:element name="trackedLinkCount" type="xsd:int" />
+          <xsd:element name="openLinkCount" type="xsd:int" />
+          <xsd:element name="uniqueOpensCount" type="xsd:int" />
+          <xsd:element name="openRate" type="xsd:double" />
+          <xsd:element name="totalClicksCount" type="xsd:int" />
+          <xsd:element name="totalClicksPercent" type="xsd:double" />
+          <xsd:element name="uniqueClicksCount" type="xsd:int" />
+          <xsd:element name="clickRate" type="xsd:double" />
+          <xsd:element name="uniqueUsersCount" type="xsd:int" />
+          <xsd:element name="uniqueUsersPercent" type="xsd:double" />
+          <xsd:element name="unsubscribeResponsesCount" type="xsd:int" />
+          <xsd:element name="unsubscribeResponsesPercent" type="xsd:double" />
+          <xsd:element name="complaintResponsesCount" type="xsd:int" />
+          <xsd:element name="complaintResponsesPercent" type="xsd:double" />
+          <xsd:element name="scompResponsesCount" type="xsd:int" />
+          <xsd:element name="scompResponsesPercent" type="xsd:double" />
+          <xsd:element name="replyResponsesCount" type="xsd:int" />
+          <xsd:element name="replyResponsesPercent" type="xsd:double" />
+          <xsd:element name="totalResponsesCount" type="xsd:int" />
+          <xsd:element name="totalResponsesPercent" type="xsd:double" />
+          <xsd:element name="confirmCount" type="xsd:int" />
+          <xsd:element name="confirmRate" type="xsd:double" />
+          <xsd:element name="mailingParts" nillable="true" type="impl:ArrayOf_impl_MailingPartReport" />
+          <xsd:element name="linkReport" nillable="true" type="impl:ArrayOf_impl_LinkReport" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SummaryMailingReport">
+        <xsd:all>
+          <xsd:element name="mailingID" type="xsd:int" />
+          <xsd:element name="mailingTitle" type="soapenc:string" />
+          <xsd:element name="campaignTitle" type="soapenc:string" />
+          <xsd:element name="brandTitle" type="soapenc:string" />
+          <xsd:element name="listTitle" type="soapenc:string" />
+          <xsd:element name="parts" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="status" type="soapenc:string" />
+          <xsd:element name="scheduledTime" type="xsd:dateTime" />
+          <xsd:element name="sentTime" type="xsd:dateTime" />
+          <xsd:element name="queueComment" type="soapenc:string" />
+          <xsd:element name="scheduledCount" type="xsd:int" />
+          <xsd:element name="deliveredCount" type="xsd:int" />
+          <xsd:element name="deliveredRate" type="xsd:double" />
+          <xsd:element name="opensCount" type="xsd:int" />
+          <xsd:element name="openRate" type="xsd:double" />
+          <xsd:element name="clicksCount" type="xsd:double" />
+          <xsd:element name="clickRate" type="xsd:double" />
+          <xsd:element name="unsubsCount" type="xsd:int" />
+          <xsd:element name="unsubRate" type="xsd:double" />
+          <xsd:element name="optoutsCount" type="xsd:int" />
+          <xsd:element name="optoutRate" type="xsd:double" />
+          <xsd:element name="customerReferenceNumber" type="soapenc:string" />
+          <xsd:element name="parentID" type="soapenc:string" />
+          <xsd:element name="ABSplit" type="soapenc:string" />
+          <xsd:element name="creator" type="soapenc:string" />
+          <xsd:element name="domain" type="soapenc:string" />
+          <xsd:element name="subject" type="soapenc:string" />
+          <xsd:element name="fromName" type="soapenc:string" />
+          <xsd:element name="campaignComment" type="soapenc:string" />
+          <xsd:element name="bounceCount" type="xsd:int" />
+          <xsd:element name="blockBounceCount" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="MailingReport">
+        <xsd:all>
+          <xsd:element name="mailingID" type="xsd:int" />
+          <xsd:element name="mailingTitle" type="soapenc:string" />
+          <xsd:element name="campaignTitle" type="soapenc:string" />
+          <xsd:element name="brandTitle" type="soapenc:string" />
+          <xsd:element name="listTitle" type="soapenc:string" />
+          <xsd:element name="parts" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="status" type="soapenc:string" />
+          <xsd:element name="scheduledTime" type="xsd:dateTime" />
+          <xsd:element name="sentTime" type="xsd:dateTime" />
+          <xsd:element name="queueComment" type="soapenc:string" />
+          <xsd:element name="scheduledCount" type="xsd:int" />
+          <xsd:element name="deliveredCount" type="xsd:int" />
+          <xsd:element name="deliveredRate" type="xsd:double" />
+          <xsd:element name="opensCount" type="xsd:int" />
+          <xsd:element name="openRate" type="xsd:double" />
+          <xsd:element name="clicksCount" type="xsd:double" />
+          <xsd:element name="clickRate" type="xsd:double" />
+          <xsd:element name="unsubsCount" type="xsd:int" />
+          <xsd:element name="unsubRate" type="xsd:double" />
+          <xsd:element name="optoutsCount" type="xsd:int" />
+          <xsd:element name="optoutRate" type="xsd:double" />
+          <xsd:element name="customerReferenceNumber" type="soapenc:string" />
+          <xsd:element name="parentID" type="soapenc:string" />
+          <xsd:element name="ABSplit" type="soapenc:string" />
+          <xsd:element name="creator" type="soapenc:string" />
+          <xsd:element name="domain" type="soapenc:string" />
+          <xsd:element name="subject" type="soapenc:string" />
+          <xsd:element name="fromName" type="soapenc:string" />
+          <xsd:element name="campaignComment" type="soapenc:string" />
+          <xsd:element name="bounceCount" type="xsd:int" />
+          <xsd:element name="blockBounceCount" type="xsd:int" />
+          <xsd:element name="softBounceCount" type="xsd:int" />
+          <xsd:element name="hardBounceCount" type="xsd:int" />
+          <xsd:element name="channel" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="SummaryCampaignReport">
+        <xsd:all>
+          <xsd:element name="campainID" type="xsd:int" />
+          <xsd:element name="campaignTitle" type="soapenc:string" />
+          <xsd:element name="createTime" type="xsd:dateTime" />
+          <xsd:element name="externalID" type="soapenc:string" />
+          <xsd:element name="scheduledCount" type="xsd:int" />
+          <xsd:element name="deliveredCount" type="xsd:int" />
+          <xsd:element name="deliveredRate" type="xsd:double" />
+          <xsd:element name="opensCount" type="xsd:int" />
+          <xsd:element name="openRate" type="xsd:double" />
+          <xsd:element name="clicksCount" type="xsd:int" />
+          <xsd:element name="clickRate" type="xsd:double" />
+          <xsd:element name="unsubsCount" type="xsd:int" />
+          <xsd:element name="unsubRate" type="xsd:double" />
+          <xsd:element name="optoutsCount" type="xsd:int" />
+          <xsd:element name="optoutRate" type="xsd:double" />
+          <xsd:element name="scompsCount" type="xsd:int" />
+          <xsd:element name="softBouncedCount" type="xsd:int" />
+          <xsd:element name="hardBouncedCount" type="xsd:int" />
+          <xsd:element name="blockBouncedCount" type="xsd:int" />
+          <xsd:element name="uniqueClicksCount" type="xsd:int" />
+          <xsd:element name="uniqueUsersCount" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_SummaryMailingReport">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:SummaryMailingReport[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_MailingReport">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:MailingReport[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_SummaryCampaignReport">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:SummaryCampaignReport[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Recipient">
+        <xsd:all>
+          <xsd:element name="recipID" nillable="true" type="xsd:int" />
+          <xsd:element name="address" nillable="true" type="soapenc:string" />
+          <xsd:element name="externalID" nillable="true" type="soapenc:string" />
+          <xsd:element name="protocol" nillable="true" type="soapenc:string" />
+          <xsd:element name="status" nillable="true" type="soapenc:string" />
+          <xsd:element name="comment" nillable="true" type="soapenc:string" />
+          <xsd:element name="importID" nillable="true" type="xsd:int" />
+          <xsd:element name="password" nillable="true" type="soapenc:string" />
+          <xsd:element name="signupMethod" nillable="true" type="soapenc:string" />
+          <xsd:element name="signupIP" nillable="true" type="soapenc:string" />
+          <xsd:element name="sourceSignupDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="sourceDescription" nillable="true" type="soapenc:string" />
+          <xsd:element name="thirdPartySource" nillable="true" type="soapenc:string" />
+          <xsd:element name="thirdPartySignupDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateLastClicked" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateLastOpened" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="clickCount" nillable="true" type="xsd:int" />
+          <xsd:element name="openCount" nillable="true" type="xsd:int" />
+          <xsd:element name="numBounces" nillable="true" type="xsd:int" />
+          <xsd:element name="blockCode" nillable="true" type="soapenc:string" />
+          <xsd:element name="dateJoined" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateBounce" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateHeld" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateUnsub" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateOptout" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="demographics" nillable="true" type="impl:ArrayOf_soapenc_string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RecipientData">
+        <xsd:all>
+          <xsd:element name="address" nillable="true" type="soapenc:string" />
+          <xsd:element name="externalID" nillable="true" type="soapenc:string" />
+          <xsd:element name="nameValuePairs" nillable="true" type="impl:ArrayOf_soapenc_string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="List">
+        <xsd:all>
+          <xsd:element name="listID" nillable="true" type="xsd:int" />
+          <xsd:element name="listTitle" nillable="true" type="soapenc:string" />
+          <xsd:element name="description" nillable="true" type="soapenc:string" />
+          <xsd:element name="createTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="creator" nillable="true" type="soapenc:string" />
+          <xsd:element name="populated" nillable="true" type="xsd:boolean" />
+          <xsd:element name="seedListID" nillable="true" type="xsd:int" />
+          <xsd:element name="globalUnsub" nillable="true" type="xsd:boolean" />
+          <xsd:element name="publicSignup" nillable="true" type="xsd:boolean" />
+          <xsd:element name="blockDomains" nillable="true" type="impl:ArrayOf_soapenc_string" />
+          <xsd:element name="countRecips" nillable="true" type="xsd:boolean" />
+          <xsd:element name="categoryID" nillable="true" type="xsd:int" />
+          <xsd:element name="externalID" nillable="true" type="soapenc:string" />
+          <xsd:element name="friendlyFromName" nillable="true" type="soapenc:string" />
+          <xsd:element name="friendlyTitle" nillable="true" type="soapenc:string" />
+          <xsd:element name="custom1" nillable="true" type="soapenc:string" />
+          <xsd:element name="facebookList" nillable="true" type="xsd:boolean" />
+          <xsd:element name="displayOrder" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ListSubscription">
+        <xsd:all>
+          <xsd:element name="listID" nillable="true" type="xsd:int" />
+          <xsd:element name="listTitle" nillable="true" type="soapenc:string" />
+          <xsd:element name="subscribed" nillable="false" type="xsd:boolean" />
+          <xsd:element name="confirmed" nillable="false" type="xsd:boolean" />
+          <xsd:element name="dateJoined" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="dateUnsubbed" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="sourceID" nillable="true" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RecipField">
+        <xsd:all>
+          <xsd:element name="name" type="soapenc:string" />
+          <xsd:element name="value" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FTPLocation">
+        <xsd:all>
+          <xsd:element name="host" type="soapenc:string" />
+          <xsd:element name="port" type="xsd:int" />
+          <xsd:element name="user" type="soapenc:string" />
+          <xsd:element name="password" type="soapenc:string" />
+          <xsd:element name="directory" type="soapenc:string" />
+          <xsd:element name="filePattern" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="HTTPLocation">
+        <xsd:all>
+          <xsd:element name="url" type="soapenc:string" />
+          <xsd:element name="username" type="soapenc:string" />
+          <xsd:element name="password" type="soapenc:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Content">
+        <xsd:all>
+          <xsd:element name="data" type="soapenc:string" />
+          <xsd:element name="name" type="soapenc:string" />
+          <xsd:element name="path" nillable="true" type="soapenc:string" />
+          <xsd:element name="creator" nillable="true" type="soapenc:string" />
+          <xsd:element name="createtime" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="lastmodifiedtime" nillable="true" type="xsd:dateTime" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_RecipField">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:RecipField[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_ListSubscription">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:ListSubscription[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_List">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:List[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_impl_RecipientData">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="impl:RecipientData[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="SubscriptionInfo">
+        <xsd:all>
+          <xsd:element name="recipFields" type="impl:ArrayOf_impl_RecipField" />
+          <xsd:element name="listSubscriptions" type="impl:ArrayOf_impl_ListSubscription" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="authenticationHeader">
+    <wsdl:part name="authInfo" type="impl:authentication" />
+  </wsdl:message>
+  <wsdl:message name="createRecipientRequest">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="createRecipientResponse" />
+  <wsdl:message name="createRecipientAndReturnRecipIDRequest">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="createRecipientAndReturnRecipIDResponse">
+    <wsdl:part name="recipID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="updateRecipientRequest">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="updateRecipientResponse" />
+  <wsdl:message name="getRecipientRequest">
+    <wsdl:part name="recipID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientResponse">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientByAddressRequest">
+    <wsdl:part name="address" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientByAddressResponse">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientByExternalIDRequest">
+    <wsdl:part name="externalID" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientByExternalIDResponse">
+    <wsdl:part name="recipient" type="impl:Recipient" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientSubscriptionsRequest">
+    <wsdl:part name="recipID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientSubscriptionsResponse">
+    <wsdl:part name="getRecipientSubscriptionsReturn" type="impl:ArrayOf_impl_ListSubscription" />
+  </wsdl:message>
+  <wsdl:message name="subscribeToListRequest">
+    <wsdl:part name="listID" type="xsd:int" />
+    <wsdl:part name="recipID" type="xsd:int" />
+    <wsdl:part name="confirmed" type="xsd:boolean" />
+    <wsdl:part name="sourceID" type="soapenc:string" />
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="subscribeToListResponse" />
+  <wsdl:message name="unsubscribeFromListRequest">
+    <wsdl:part name="listID" type="xsd:int" />
+    <wsdl:part name="recipID" type="xsd:int" />
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="unsubscribeFromListResponse" />
+  <wsdl:message name="globalUnsubscribeRequest">
+    <wsdl:part name="recipID" type="xsd:int" />
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="globalUnsubscribeResponse" />
+  <wsdl:message name="globalUnsubscribeAllRequest">
+    <wsdl:part name="address" type="soapenc:string" />
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="globalUnsubscribeAllResponse" />
+  <wsdl:message name="getListRequest">
+    <wsdl:part name="listID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getListResponse">
+    <wsdl:part name="list" type="impl:List" />
+  </wsdl:message>
+  <wsdl:message name="getListsRequest">
+    <wsdl:part name="searchValues" type="impl:List" />
+  </wsdl:message>
+  <wsdl:message name="getListsResponse">
+    <wsdl:part name="getListsReturn" type="impl:ArrayOf_impl_List" />
+  </wsdl:message>
+  <wsdl:message name="createSendTemplateResponse">
+    <wsdl:part name="createSendTemplateReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createSendTemplateRequest">
+    <wsdl:part name="sendTemplateBean" type="impl:SendTemplateBean" />
+    <wsdl:part name="textContent" type="soapenc:string" />
+    <wsdl:part name="htmlContent" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="doImportAndSendFromTemplateResponse">
+    <wsdl:part name="doImportAndSendFromTemplateReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="doImportAndSendFromTemplateRequest">
+    <wsdl:part name="impTempId" type="xsd:int" />
+    <wsdl:part name="sendTempId" type="xsd:int" />
+    <wsdl:part name="data" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getImportStatusRequest">
+    <wsdl:part name="importID" type="xsd:int" />
+    <wsdl:part name="fileName" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getImportStatusResponse">
+    <wsdl:part name="getImportStatusReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="doImportFromTemplateResponse">
+    <wsdl:part name="doImportFromTemplateReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="doImportFromTemplateRequest">
+    <wsdl:part name="impTempId" type="xsd:int" />
+    <wsdl:part name="data" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getDetailedMailingReportRequest">
+    <wsdl:part name="mailingId" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getDetailedMailingReportResponse">
+    <wsdl:part name="detailedMailingReportReturn" type="impl:DetailedMailingReport" />
+  </wsdl:message>
+  <wsdl:message name="getImportTemplatesRequest" />
+  <wsdl:message name="getImportTemplatesResponse">
+    <wsdl:part name="getImportTemplatesReturn" type="impl:ArrayOf_impl_IdAndTitle" />
+  </wsdl:message>
+  <wsdl:message name="getMailingReportSummariesRequest">
+    <wsdl:part name="siteid" type="xsd:int" />
+    <wsdl:part name="fromdate" type="xsd:date" />
+    <wsdl:part name="todate" type="xsd:date" />
+    <wsdl:part name="type" type="soapenc:string" />
+    <wsdl:part name="listid" type="soapenc:string" />
+    <wsdl:part name="limit" type="soapenc:string" />
+    <wsdl:part name="title" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailingReportSummariesResponse">
+    <wsdl:part name="mailingReportSummaryReturn" type="impl:ArrayOf_impl_SummaryMailingReport" />
+    <wsdl:part name="mailingReportSummaryReturnCamp" type="impl:ArrayOf_impl_SummaryCampaignReport" />
+  </wsdl:message>
+  <wsdl:message name="getMailingReportsRequest">
+    <wsdl:part name="fromdate" type="xsd:date" />
+    <wsdl:part name="todate" type="xsd:date" />
+    <wsdl:part name="type" type="soapenc:string" />
+    <wsdl:part name="channel" type="soapenc:string" />
+    <wsdl:part name="listid" type="xsd:int" />
+    <wsdl:part name="limit" type="xsd:int" />
+    <wsdl:part name="mailingtitle" type="soapenc:string" />
+    <wsdl:part name="listtitle" type="soapenc:string" />
+    <wsdl:part name="listexternalid" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailingReportsResponse">
+    <wsdl:part name="mailingReportReturn" type="impl:ArrayOf_impl_MailingReport" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignReportsRequest">
+    <wsdl:part name="fromdate" type="xsd:date" />
+    <wsdl:part name="todate" type="xsd:date" />
+    <wsdl:part name="channel" type="soapenc:string" />
+    <wsdl:part name="limit" type="xsd:int" />
+    <wsdl:part name="title" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getCampaignReportsResponse">
+    <wsdl:part name="campaignReportReturn" type="impl:ArrayOf_impl_SummaryCampaignReport" />
+  </wsdl:message>
+  <wsdl:message name="getSendTemplateContentRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="part" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getSendTemplateContentResponse">
+    <wsdl:part name="getSendTemplateContentReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getSendTemplateDefinitionRequest">
+    <wsdl:part name="id" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getSendTemplateDefinitionResponse">
+    <wsdl:part name="getSendTemplateDefinitionReturn" type="impl:SendTemplateBean" />
+  </wsdl:message>
+  <wsdl:message name="getSendTemplatesRequest" />
+  <wsdl:message name="getSendTemplatesResponse">
+    <wsdl:part name="getSendTemplatesReturn" type="impl:ArrayOf_impl_IdAndTitle" />
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part name="getVersionReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest" />
+  <wsdl:message name="getStatisticsResponse">
+    <wsdl:part name="getStatisticsReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getStatisticsRequest" />
+  <wsdl:message name="createFacebookMailingResponse">
+    <wsdl:part name="createFacebookMailingReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createFacebookMailingRequest">
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:FacebookContent" />
+  </wsdl:message>
+  <wsdl:message name="updateFacebookMailingResponse" />
+  <wsdl:message name="updateFacebookMailingRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:FacebookContent" />
+  </wsdl:message>
+  <wsdl:message name="createSMSMailingResponse">
+    <wsdl:part name="createSMSMailingReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createSMSMailingRequest">
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:SMSContent" />
+  </wsdl:message>
+  <wsdl:message name="updateSMSMailingResponse" />
+  <wsdl:message name="updateSMSMailingRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:SMSContent" />
+  </wsdl:message>
+  <wsdl:message name="createEmailMailingResponse">
+    <wsdl:part name="createEmailMailingReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="createEmailMailingRequest">
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:EmailContent" />
+  </wsdl:message>
+  <wsdl:message name="updateEmailMailingResponse" />
+  <wsdl:message name="updateEmailMailingRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+    <wsdl:part name="mailing" type="impl:Mailing" />
+    <wsdl:part name="content" type="impl:EmailContent" />
+  </wsdl:message>
+  <wsdl:message name="sendTestMessageResponse" />
+  <wsdl:message name="sendTestMessageRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+    <wsdl:part name="testAddresses" type="impl:ArrayOf_soapenc_string" />
+    <wsdl:part name="part" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="enableMailingResponse" />
+  <wsdl:message name="enableMailingRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getMailingStatusResponse">
+    <wsdl:part name="status" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getMailingStatusRequest">
+    <wsdl:part name="mailingID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="recipientEmail" type="soapenc:string" />
+    <wsdl:part name="nameValuePairs" type="impl:ArrayOf_soapenc_string" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateResponse">
+    <wsdl:part name="sendMessageFromTemplateReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateWithReferenceNumberRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="customerReferenceNumber" type="soapenc:string" />
+    <wsdl:part name="nameValuePairs" type="impl:ArrayOf_soapenc_string" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateWithReferenceNumberResponse">
+    <wsdl:part name="sendMessageFromTemplateReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateWithReferenceNumberAndAddressRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="customerReferenceNumber" type="soapenc:string" />
+    <wsdl:part name="recipientEmail" type="soapenc:string" />
+    <wsdl:part name="nameValuePairs" type="impl:ArrayOf_soapenc_string" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageFromTemplateWithReferenceNumberAndAddressResponse">
+    <wsdl:part name="sendMessageFromTemplateReturn" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="sendEmailMessagesRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="mailingTitle" type="soapenc:string" />
+    <wsdl:part name="emailContent" type="impl:EmailContent" />
+    <wsdl:part name="recipientData" type="impl:ArrayOf_impl_RecipientData" />
+  </wsdl:message>
+  <wsdl:message name="sendEmailMessagesResponse">
+    <wsdl:part name="sendEmailMessagesReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="sendMessagesFromTemplateRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="recipientData" type="impl:ArrayOf_impl_RecipientData" />
+  </wsdl:message>
+  <wsdl:message name="sendMessagesFromTemplateResponse">
+    <wsdl:part name="sendMessagesFromTemplateReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="sendSMSMessagesResponse">
+    <wsdl:part name="sendSMSMessagesReturn" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="sendSMSMessagesRequest">
+    <wsdl:part name="sendTemplateID" type="xsd:int" />
+    <wsdl:part name="mailingTitle" type="soapenc:string" />
+    <wsdl:part name="smsContent" type="impl:SMSContent" />
+    <wsdl:part name="recipientData" type="impl:ArrayOf_impl_RecipientData" />
+  </wsdl:message>
+  <wsdl:message name="updateSendTemplateDefinitionRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="sendTemplateBean" type="impl:SendTemplateBean" />
+  </wsdl:message>
+  <wsdl:message name="updateSendTemplateDefinitionResponse">
+    <wsdl:part name="successCode" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSendTemplateContentsRequest">
+    <wsdl:part name="id" type="xsd:int" />
+    <wsdl:part name="textContent" type="soapenc:string" />
+    <wsdl:part name="htmlContent" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="updateSendTemplateContentsResponse">
+    <wsdl:part name="successCode" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientInfoRequest">
+    <wsdl:part name="siteID" type="xsd:int" />
+    <wsdl:part name="address" type="soapenc:string" />
+    <wsdl:part name="externalID" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipientInfoResponse">
+    <wsdl:part name="subscriptionInfo" type="impl:SubscriptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="getRecipSubscriptionInfoRequest">
+    <wsdl:part name="siteID" type="xsd:int" />
+    <wsdl:part name="address" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getRecipSubscriptionInfoResponse">
+    <wsdl:part name="subscriptionInfo" type="impl:SubscriptionInfo" />
+  </wsdl:message>
+  <wsdl:message name="createContentFolderRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="createContentFolderResponse">
+    <wsdl:part name="success" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="deleteContentRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="filename" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="deleteContentResponse" />
+  <wsdl:message name="uploadContentFromSFTPRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="ftpLocation" type="impl:FTPLocation" />
+  </wsdl:message>
+  <wsdl:message name="uploadContentFromSFTPResponse">
+    <wsdl:part name="jobID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="uploadContentFromHTTPRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="filename" type="soapenc:string" />
+    <wsdl:part name="httpLocation" type="impl:HTTPLocation" />
+  </wsdl:message>
+  <wsdl:message name="uploadContentFromHTTPResponse">
+    <wsdl:part name="jobID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getContentUploadStatusRequest">
+    <wsdl:part name="jobID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="getContentUploadStatusResponse">
+    <wsdl:part name="status" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="listContentsRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="listContentsResponse">
+    <wsdl:part name="contents" type="impl:ArrayOf_soapenc_string" />
+  </wsdl:message>
+  <wsdl:message name="getContentRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="filename" type="soapenc:string" />
+  </wsdl:message>
+  <wsdl:message name="getContentResponse">
+    <wsdl:part name="content" type="impl:Content" />
+  </wsdl:message>
+  <wsdl:message name="createContentRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="content" type="impl:Content" />
+  </wsdl:message>
+  <wsdl:message name="createContentResponse" />
+  <wsdl:message name="updateContentRequest">
+    <wsdl:part name="path" type="soapenc:string" />
+    <wsdl:part name="content" type="impl:Content" />
+  </wsdl:message>
+  <wsdl:message name="updateContentResponse" />
+  <wsdl:portType name="SoapRequestProcessor">
+    <wsdl:operation name="createRecipient" parameterOrder="recipient">
+      <wsdl:input name="createRecipientRequest" message="impl:createRecipientRequest" />
+      <wsdl:output name="createRecipientResponse" message="impl:createRecipientResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createRecipientAndReturnRecipID" parameterOrder="recipient">
+      <wsdl:input name="createRecipientAndReturnRecipIDRequest" message="impl:createRecipientAndReturnRecipIDRequest" />
+      <wsdl:output name="createRecipientAndReturnRecipIDResponse" message="impl:createRecipientAndReturnRecipIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRecipient" parameterOrder="recipient">
+      <wsdl:input name="updateRecipientRequest" message="impl:updateRecipientRequest" />
+      <wsdl:output name="updateRecipientResponse" message="impl:updateRecipientResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipient" parameterOrder="recipID">
+      <wsdl:input name="getRecipientRequest" message="impl:getRecipientRequest" />
+      <wsdl:output name="getRecipientResponse" message="impl:getRecipientResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientByAddress" parameterOrder="address">
+      <wsdl:input name="getRecipientByAddressRequest" message="impl:getRecipientByAddressRequest" />
+      <wsdl:output name="getRecipientByAddressResponse" message="impl:getRecipientByAddressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientByExternalID" parameterOrder="externalID">
+      <wsdl:input name="getRecipientByExternalIDRequest" message="impl:getRecipientByExternalIDRequest" />
+      <wsdl:output name="getRecipientByExternalIDResponse" message="impl:getRecipientByExternalIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientSubscriptions" parameterOrder="recipID">
+      <wsdl:input name="getRecipientSubscriptionsRequest" message="impl:getRecipientSubscriptionsRequest" />
+      <wsdl:output name="getRecipientSubscriptionsResponse" message="impl:getRecipientSubscriptionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="subscribeToList" parameterOrder="listID recipID confirmed sourceID mailingID">
+      <wsdl:input name="subscribeToListRequest" message="impl:subscribeToListRequest" />
+      <wsdl:output name="subscribeToListResponse" message="impl:subscribeToListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="unsubscribeFromList" parameterOrder="listID recipID mailingID">
+      <wsdl:input name="unsubscribeFromListRequest" message="impl:unsubscribeFromListRequest" />
+      <wsdl:output name="unsubscribeFromListResponse" message="impl:unsubscribeFromListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="globalUnsubscribe" parameterOrder="recipID mailingID">
+      <wsdl:input name="globalUnsubscribeRequest" message="impl:globalUnsubscribeRequest" />
+      <wsdl:output name="globalUnsubscribeResponse" message="impl:globalUnsubscribeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="globalUnsubscribeAll" parameterOrder="address mailingID">
+      <wsdl:input name="globalUnsubscribeAllRequest" message="impl:globalUnsubscribeAllRequest" />
+      <wsdl:output name="globalUnsubscribeAllResponse" message="impl:globalUnsubscribeAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getList" parameterOrder="listID">
+      <wsdl:input name="getListRequest" message="impl:getListRequest" />
+      <wsdl:output name="getListResponse" message="impl:getListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getLists" parameterOrder="searchValues">
+      <wsdl:input name="getListsRequest" message="impl:getListsRequest" />
+      <wsdl:output name="getListsResponse" message="impl:getListsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createSendTemplate" parameterOrder="sendTemplateBean textContent htmlContent">
+      <wsdl:input name="createSendTemplateRequest" message="impl:createSendTemplateRequest" />
+      <wsdl:output name="createSendTemplateResponse" message="impl:createSendTemplateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doImportAndSendFromTemplate" parameterOrder="impTempId sendTempId data">
+      <wsdl:input name="doImportAndSendFromTemplateRequest" message="impl:doImportAndSendFromTemplateRequest" />
+      <wsdl:output name="doImportAndSendFromTemplateResponse" message="impl:doImportAndSendFromTemplateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doImportFromTemplate" parameterOrder="impTempId data">
+      <wsdl:input name="doImportFromTemplateRequest" message="impl:doImportFromTemplateRequest" />
+      <wsdl:output name="doImportFromTemplateResponse" message="impl:doImportFromTemplateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getImportStatus" parameterOrder="importID fileName">
+      <wsdl:input name="getImportStatusRequest" message="impl:getImportStatusRequest" />
+      <wsdl:output name="getImportStatusResponse" message="impl:getImportStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailedMailingReport" parameterOrder="mailingId">
+      <wsdl:input name="getDetailedMailingReportRequest" message="impl:getDetailedMailingReportRequest" />
+      <wsdl:output name="getDetailedMailingReportResponse" message="impl:getDetailedMailingReportResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getImportTemplates">
+      <wsdl:input name="getImportTemplatesRequest" message="impl:getImportTemplatesRequest" />
+      <wsdl:output name="getImportTemplatesResponse" message="impl:getImportTemplatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailingReportSummaries" parameterOrder="siteid fromdate todate type listid limit title">
+      <wsdl:input name="getMailingReportSummariesRequest" message="impl:getMailingReportSummariesRequest" />
+      <wsdl:output name="getMailingReportSummariesResponse" message="impl:getMailingReportSummariesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailingReports" parameterOrder="fromdate todate type channel listid limit mailingtitle listtitle listexternalid">
+      <wsdl:input name="getMailingReportsRequest" message="impl:getMailingReportsRequest" />
+      <wsdl:output name="getMailingReportsResponse" message="impl:getMailingReportsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignReports" parameterOrder="fromdate todate channel limit title">
+      <wsdl:input name="getCampaignReportsRequest" message="impl:getCampaignReportsRequest" />
+      <wsdl:output name="getCampaignReportsResponse" message="impl:getCampaignReportsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplateContent" parameterOrder="id part">
+      <wsdl:input name="getSendTemplateContentRequest" message="impl:getSendTemplateContentRequest" />
+      <wsdl:output name="getSendTemplateContentResponse" message="impl:getSendTemplateContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplateDefinition" parameterOrder="id">
+      <wsdl:input name="getSendTemplateDefinitionRequest" message="impl:getSendTemplateDefinitionRequest" />
+      <wsdl:output name="getSendTemplateDefinitionResponse" message="impl:getSendTemplateDefinitionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplates">
+      <wsdl:input name="getSendTemplatesRequest" message="impl:getSendTemplatesRequest" />
+      <wsdl:output name="getSendTemplatesResponse" message="impl:getSendTemplatesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdl:input name="getVersionRequest" message="impl:getVersionRequest" />
+      <wsdl:output name="getVersionResponse" message="impl:getVersionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatistics">
+      <wsdl:input name="getStatisticsRequest" message="impl:getStatisticsRequest" />
+      <wsdl:output name="getStatisticsResponse" message="impl:getStatisticsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createFacebookMailing" parameterOrder="mailing content">
+      <wsdl:input name="createFacebookMailingRequest" message="impl:createFacebookMailingRequest" />
+      <wsdl:output name="createFacebookMailingResponse" message="impl:createFacebookMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateFacebookMailing" parameterOrder="mailingID mailing content">
+      <wsdl:input name="updateFacebookMailingRequest" message="impl:updateFacebookMailingRequest" />
+      <wsdl:output name="updateFacebookMailingResponse" message="impl:updateFacebookMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createSMSMailing" parameterOrder="mailing content">
+      <wsdl:input name="createSMSMailingRequest" message="impl:createSMSMailingRequest" />
+      <wsdl:output name="createSMSMailingResponse" message="impl:createSMSMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSMSMailing" parameterOrder="mailingID mailing content">
+      <wsdl:input name="updateSMSMailingRequest" message="impl:updateSMSMailingRequest" />
+      <wsdl:output name="updateSMSMailingResponse" message="impl:updateSMSMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createEmailMailing" parameterOrder="mailing content">
+      <wsdl:input name="createEmailMailingRequest" message="impl:createEmailMailingRequest" />
+      <wsdl:output name="createEmailMailingResponse" message="impl:createEmailMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEmailMailing" parameterOrder="mailingID mailing content">
+      <wsdl:input name="updateEmailMailingRequest" message="impl:updateEmailMailingRequest" />
+      <wsdl:output name="updateEmailMailingResponse" message="impl:updateEmailMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendTestMessage" parameterOrder="mailingID testAddresses part">
+      <wsdl:input name="sendTestMessageRequest" message="impl:sendTestMessageRequest" />
+      <wsdl:output name="sendTestMessageResponse" message="impl:sendTestMessageResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enableMailing" parameterOrder="mailingID">
+      <wsdl:input name="enableMailingRequest" message="impl:enableMailingRequest" />
+      <wsdl:output name="enableMailingResponse" message="impl:enableMailingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMailingStatus" parameterOrder="mailingID">
+      <wsdl:input name="getMailingStatusRequest" message="impl:getMailingStatusRequest" />
+      <wsdl:output name="getMailingStatusResponse" message="impl:getMailingStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplate" parameterOrder="sendTemplateID recipientEmail nameValuePairs">
+      <wsdl:input name="sendMessageFromTemplateRequest" message="impl:sendMessageFromTemplateRequest" />
+      <wsdl:output name="sendMessageFromTemplateResponse" message="impl:sendMessageFromTemplateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplateWithReferenceNumber" parameterOrder="sendTemplateID customerReferenceNumber nameValuePairs">
+      <wsdl:input name="sendMessageFromTemplateWithReferenceNumberRequest" message="impl:sendMessageFromTemplateWithReferenceNumberRequest" />
+      <wsdl:output name="sendMessageFromTemplateWithReferenceNumberResponse" message="impl:sendMessageFromTemplateWithReferenceNumberResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplateWithReferenceNumberAndAddress" parameterOrder="sendTemplateID customerReferenceNumber recipientEmail nameValuePairs">
+      <wsdl:input name="sendMessageFromTemplateWithReferenceNumberAndAddressRequest" message="impl:sendMessageFromTemplateWithReferenceNumberAndAddressRequest" />
+      <wsdl:output name="sendMessageFromTemplateWithReferenceNumberAndAddressResponse" message="impl:sendMessageFromTemplateWithReferenceNumberAndAddressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessagesFromTemplate" parameterOrder="sendTemplateID recipientData">
+      <wsdl:input name="sendMessagesFromTemplateRequest" message="impl:sendMessagesFromTemplateRequest" />
+      <wsdl:output name="sendMessagesFromTemplateResponse" message="impl:sendMessagesFromTemplateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendEmailMessages" parameterOrder="sendTemplateID mailingTitle emailContent recipientData">
+      <wsdl:input name="sendEmailMessagesRequest" message="impl:sendEmailMessagesRequest" />
+      <wsdl:output name="sendEmailMessagesResponse" message="impl:sendEmailMessagesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="sendSMSMessages" parameterOrder="sendTemplateID mailingTitle smsContent recipientData">
+      <wsdl:input name="sendSMSMessagesRequest" message="impl:sendSMSMessagesRequest" />
+      <wsdl:output name="sendSMSMessagesResponse" message="impl:sendSMSMessagesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSendTemplateDefinition" parameterOrder="id sendTemplateBean">
+      <wsdl:input name="updateSendTemplateDefinitionRequest" message="impl:updateSendTemplateDefinitionRequest" />
+      <wsdl:output name="updateSendTemplateDefinitionResponse" message="impl:updateSendTemplateDefinitionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSendTemplateContents" parameterOrder="id textContent htmlContent">
+      <wsdl:input name="updateSendTemplateContentsRequest" message="impl:updateSendTemplateContentsRequest" />
+      <wsdl:output name="updateSendTemplateContentsResponse" message="impl:updateSendTemplateContentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientInfo" parameterOrder="siteID address externalID">
+      <wsdl:input name="getRecipientInfoRequest" message="impl:getRecipientInfoRequest" />
+      <wsdl:output name="getRecipientInfoResponse" message="impl:getRecipientInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRecipSubscriptionInfo" parameterOrder="siteID address">
+      <wsdl:input name="getRecipSubscriptionInfoRequest" message="impl:getRecipSubscriptionInfoRequest" />
+      <wsdl:output name="getRecipSubscriptionInfoResponse" message="impl:getRecipSubscriptionInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createContentFolder" parameterOrder="path">
+      <wsdl:input name="createContentFolderRequest" message="impl:createContentFolderRequest" />
+      <wsdl:output name="createContentFolderResponse" message="impl:createContentFolderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteContent" parameterOrder="path filename">
+      <wsdl:input name="deleteContentRequest" message="impl:deleteContentRequest" />
+      <wsdl:output name="deleteContentResponse" message="impl:deleteContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadContentFromSFTP" parameterOrder="path ftpLocation">
+      <wsdl:input name="uploadContentFromSFTPRequest" message="impl:uploadContentFromSFTPRequest" />
+      <wsdl:output name="uploadContentFromSFTPResponse" message="impl:uploadContentFromSFTPResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadContentFromHTTP" parameterOrder="path filename httpLocation">
+      <wsdl:input name="uploadContentFromHTTPRequest" message="impl:uploadContentFromHTTPRequest" />
+      <wsdl:output name="uploadContentFromHTTPResponse" message="impl:uploadContentFromHTTPResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getContentUploadStatus" parameterOrder="jobID">
+      <wsdl:input name="getContentUploadStatusRequest" message="impl:getContentUploadStatusRequest" />
+      <wsdl:output name="getContentUploadStatusResponse" message="impl:getContentUploadStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listContents" parameterOrder="path">
+      <wsdl:input name="listContentsRequest" message="impl:listContentsRequest" />
+      <wsdl:output name="listContentsResponse" message="impl:listContentsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getContent" parameterOrder="path filename">
+      <wsdl:input name="getContentRequest" message="impl:getContentRequest" />
+      <wsdl:output name="getContentResponse" message="impl:getContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="createContent" parameterOrder="path content">
+      <wsdl:input name="createContentRequest" message="impl:createContentRequest" />
+      <wsdl:output name="createContentResponse" message="impl:createContentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="updateContent" parameterOrder="path content">
+      <wsdl:input name="updateContentRequest" message="impl:updateContentRequest" />
+      <wsdl:output name="updateContentResponse" message="impl:updateContentResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapRequestProcessorSoapBinding" type="impl:SoapRequestProcessor">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="createRecipient">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createRecipientRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createRecipientResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createRecipientAndReturnRecipID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createRecipientAndReturnRecipIDRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createRecipientAndReturnRecipIDResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRecipient">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateRecipientRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateRecipientResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipient">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipientRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipientResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientByAddress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipientByAddressRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipientByAddressResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientByExternalID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipientByExternalIDRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipientByExternalIDResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientSubscriptions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipientSubscriptionsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipientSubscriptionsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subscribeToList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="subscribeToListRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="subscribeToListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsubscribeFromList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="unsubscribeFromListRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="unsubscribeFromListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="globalUnsubscribe">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="globalUnsubscribeRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="globalUnsubscribeResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="globalUnsubscribeAll">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="globalUnsubscribeAllRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="globalUnsubscribeAllResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getListRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLists">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getListsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getListsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSendTemplate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createSendTemplateRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createSendTemplateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doImportAndSendFromTemplate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="doImportAndSendFromTemplateRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="doImportAndSendFromTemplateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImportStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getImportStatusRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getImportStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doImportFromTemplate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="doImportFromTemplateRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="doImportFromTemplateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVersionRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getVersionResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStatistics">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getStatisticsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getStatisticsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailedMailingReport">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDetailedMailingReportRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getDetailedMailingReportResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingReportSummaries">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMailingReportSummariesRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMailingReportSummariesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingReports">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMailingReportsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMailingReportsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCampaignReports">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCampaignReportsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getCampaignReportsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImportTemplates">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getImportTemplatesRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getImportTemplatesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplateContent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSendTemplateContentRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getSendTemplateContentResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplateDefinition">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSendTemplateDefinitionRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getSendTemplateDefinitionResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSendTemplates">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSendTemplatesRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getSendTemplatesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createFacebookMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createFacebookMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createFacebookMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateFacebookMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateFacebookMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateFacebookMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createSMSMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createSMSMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createSMSMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSMSMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateSMSMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateSMSMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmailMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createEmailMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createEmailMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEmailMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateEmailMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateEmailMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendTestMessage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendTestMessageRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendTestMessageResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enableMailing">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enableMailingRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="enableMailingResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMailingStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getMailingStatusRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getMailingStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendMessageFromTemplateRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendMessageFromTemplateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplateWithReferenceNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendMessageFromTemplateWithReferenceNumberRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendMessageFromTemplateWithReferenceNumberResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageFromTemplateWithReferenceNumberAndAddress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendMessageFromTemplateWithReferenceNumberAndAddressRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendMessageFromTemplateWithReferenceNumberAndAddressResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessagesFromTemplate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendMessagesFromTemplateRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendMessagesFromTemplateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendEmailMessages">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendEmailMessagesRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendEmailMessagesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSMSMessages">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendSMSMessagesRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="sendSMSMessagesResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSendTemplateDefinition">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateSendTemplateDefinitionRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateSendTemplateDefinitionResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSendTemplateContents">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateSendTemplateContentsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateSendTemplateContentsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipientInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipientInfoRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipientInfoResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecipSubscriptionInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRecipSubscriptionInfoRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getRecipSubscriptionInfoResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createContentFolder">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createContentFolderRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createContentFolderResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteContent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteContentRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="deleteContentResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadContentFromSFTP">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadContentFromSFTPRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="uploadContentFromSFTPResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadContentFromHTTP">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadContentFromHTTPRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="uploadContentFromHTTPResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContentUploadStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getContentUploadStatusRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getContentUploadStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listContents">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="listContentsRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="listContentsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getContentRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="getContentResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createContent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createContentRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="createContentResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateContent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateContentRequest">
+        <wsdlsoap:header message="impl:authenticationHeader" part="authInfo" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://services.web.stormpost.skylist.com" />
+        <wsdlsoap:body use="encoded" namespace="http://services.web.stormpost.skylist.com" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="updateContentResponse">
+        <wsdlsoap:body use="encoded" namespace="http://skylist.com/services/SoapRequestProcessor" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapRequestProcessorService">
+    <wsdl:port name="SoapRequestProcessor" binding="impl:SoapRequestProcessorSoapBinding">
+      <wsdlsoap:address location="https://api.stormpost.datranmedia.com/services/SoapRequestProcessor" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

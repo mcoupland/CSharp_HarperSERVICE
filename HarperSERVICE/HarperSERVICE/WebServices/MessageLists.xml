@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<errorlist>
+  <service type="ahmessages">
+    <message ahcode="9999" ahname="SFGFatalError" ahmessage="Fatal SFG Error:  SFG did not respond.  Null response returned." />
+    <message ahcode="9998" ahname="UserAlreadyExistsException" ahmessage="undefined" />
+    <message ahcode="9997" ahname="UsernameInUseException" ahmessage="undefined" />
+    <message ahcode="9996" ahname="ImproperValidationCriteriaException" ahmessage="Required parameters were not provided for this web service request." />
+    <message ahcode="9995" ahname="MemberNotFoundException" ahmessage="undefined" />
+    <message ahcode="9994" ahname="InvalidLoginException" ahmessage="Invalid username and password combition." />
+    <message ahcode="9993" ahname="AccessGranted" ahmessage="undefined" />
+    <message ahcode="9992" ahname="AccessDenied" ahmessage="Invalid username and password combination." />
+  </service>
+  <service type="common">
+    <message sfgcode="001" sfgname="" sfgmessage="Internal execution error" ahcode="001" ahname="SFGFatalError" ahmessage="Internal SFG execution error." />
+    <message sfgcode="003" sfgname="" sfgmessage="USERID not found" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="005" sfgname="" sfgmessage="NOT Authorized" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="007" sfgname="" sfgmessage="Internal Web Svc Info not found" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="008" sfgname="" sfgmessage="Could not LOAD Web Service Option information" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="010" sfgname="" sfgmessage="Web service inactive" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="011" sfgname="" sfgmessage="Web service inactive" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="012" sfgname="" sfgmessage="Web service inactive" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="013" sfgname="" sfgmessage="Services Disabled" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="020" sfgname="" sfgmessage="SSL error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="021" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="023" sfgname="" sfgmessage="IP error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="030" sfgname="" sfgmessage="Org on file for your organization is bad" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="031" sfgname="" sfgmessage="Org parameter is bad" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="032" sfgname="" sfgmessage="Org parameter and Org on file do not match" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="033" sfgname="" sfgmessage="Program Type ID parameter not passed" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="034" sfgname="" sfgmessage="Program Type ID not registered for your company" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="035" sfgname="" sfgmessage="Program Type ID bad" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="036" sfgname="" sfgmessage="Program ID bad" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="037" sfgname="" sfgmessage="Program type id not valid for web service" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+  <service type="ccproc">
+    <message sfgcode="100" sfgname="" sfgmessage="An invalid customer number was supplied" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100a" sfgname="" sfgmessage="Failed input validation (general)" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100b" sfgname="" sfgmessage="Failed input validation (general)" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100c" sfgname="" sfgmessage="Failed input validation (general)" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="101" sfgname="" sfgmessage="Wrong program type ID – should be MS" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102" sfgname="" sfgmessage="Invalid cc_amount" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="103" sfgname="" sfgmessage="No cc_name" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="104" sfgname="" sfgmessage="No cc_addr" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="105" sfgname="" sfgmessage="No cc_city" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="106" sfgname="" sfgmessage="No cc_state" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="107" sfgname="" sfgmessage="No cc_zip" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="108" sfgname="" sfgmessage="Incorrect cc_trans_type" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="109" sfgname="" sfgmessage="No cc_auth_number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="110" sfgname="" sfgmessage="Invalid cc_amount" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="111" sfgname="" sfgmessage="No cc_number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="112" sfgname="" sfgmessage="Invalid cc_exp_mm" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="113" sfgname="" sfgmessage="Invalid cc_exp_yyyy" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="114" sfgname="" sfgmessage="No cc_verify" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="116" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="117" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="117b" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="118" sfgname="" sfgmessage="Invalid cc_number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="119" sfgname="" sfgmessage="DB error querying for customer info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="120" sfgname="" sfgmessage="Validation error querying for customer info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="121" sfgname="" sfgmessage="Could not find a customer matching supplied customer number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="122" sfgname="" sfgmessage="DB error adding new customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="123" sfgname="" sfgmessage="Validation error adding new customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="124" sfgname="" sfgmessage="Undefined error trying to add a new customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="125" sfgname="" sfgmessage="Validation error(s) adding new customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="126" sfgname="" sfgmessage="Customer number and UserID do not match up" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="127" sfgname="" sfgmessage="DB problem while adding user" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="132" sfgname="" sfgmessage="DB error trying to perform cc operation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="133" sfgname="" sfgmessage="Validation error trying to perform cc operation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="134" sfgname="" sfgmessage="No response trying to perform cc operation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="135" sfgname="" sfgmessage="Credit card transaction error(s)" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+  <service type="suborder">
+    <message sfgcode="100" sfgname="" sfgmessage="Invalid customer number passed" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100a" sfgname="" sfgmessage="DB error trying to add a customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100b" sfgname="" sfgmessage="General validation error trying to add a customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100c" sfgname="" sfgmessage="Undefined error trying to add a customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="100d" sfgname="" sfgmessage="After adding customer, customer number not valid" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="101" sfgname="" sfgmessage="Invalid gift customer number passed" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102a" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102b" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102c" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="104" sfgname="" sfgmessage="Invalid amount_paid was passed for payment type" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="105" sfgname="" sfgmessage="Invalid cc_route_no was passed for payment type" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="106" sfgname="" sfgmessage="Invalid survey_trans_id supplied for payment type L" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="108" sfgname="" sfgmessage="DB error trying to add a gift customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="109" sfgname="" sfgmessage="General validation error trying to add a gift customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="110" sfgname="" sfgmessage="Undefined error trying to add a gift customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="112" sfgname="" sfgmessage="Gift customer could not be found or added" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="113" sfgname="" sfgmessage="Backend – DB error trying to perform the order insert" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="114" sfgname="" sfgmessage="Backend – Validation error trying to perform the order insert" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="115" sfgname="" sfgmessage="Backend – No response trying to perform the order insert" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="116" sfgname="" sfgmessage="Backend – Misc errors trying to perform the order insert" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+  <service type="gatekeeper">
+    <message sfgcode="100" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="105" sfgname="" sfgmessage="Failed input validation." ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="110" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="120" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="130" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="140" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="145" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="150" sfgname="" sfgmessage="No password (or salt) supplied for userid" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="160" sfgname="" sfgmessage="No password (or salt) supplied for cust number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="180" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="190" sfgname="" sfgmessage="Error querying for customer info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="200" sfgname="" sfgmessage="Lookup fields not correctly defined" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="210" sfgname="" sfgmessage="No customer or user account exists for cust number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="300" sfgname="" sfgmessage="Error initializing while impersonating user" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="350" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="360" sfgname="" sfgmessage="Error querying for customer info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="500" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="510" sfgname="" sfgmessage="Error querying user table" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="520" sfgname="" sfgmessage="Error querying for user - no response returned from stored proc" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="550" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="560" sfgname="" sfgmessage="Error querying for history info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="600" sfgname="" sfgmessage="Error loading cust/user list" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="610" sfgname="" sfgmessage="Error reading the password from file" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="650" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="660" sfgname="" sfgmessage="Error querying for history info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="650" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="660" sfgname="" sfgmessage="Error querying for history info" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+  <service type="customerupdate">
+    <message sfgcode="100" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="110" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="200" sfgname="" sfgmessage="Wrong program type id" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="210" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="220" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="230" sfgname="" sfgmessage="Failed input validation" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="300" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="310" sfgname="" sfgmessage="Error updating the customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="320" sfgname="" sfgmessage="Error updating the customer" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+  <service type="usermaintenance">    
+    <!--THIS MESSAGE WAS ENCOUNTERED, BUT NOT IN THE DOCS...  <message sfgcode="100" sfgname="" sfgmessage="No userid was supplied..." ahcode="0" ahname="" ahmessage="" />-->
+    <message sfgcode="100a" sfgname="" sfgmessage="Failed input validation.  Field(s):  field list" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102" sfgname="" sfgmessage="Internal Execution Error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102a" sfgname="" sfgmessage="Internal Execution Error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102b" sfgname="" sfgmessage="Invalid customer  number passed" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102c" sfgname="" sfgmessage="	No Customer number/Zip OR Validation Userid were supplied" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="102d" sfgname="" sfgmessage="Internal Execution Error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="103" sfgname="" sfgmessage="Customer number and Validation UserID do not match up" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="103a" sfgname="" sfgmessage="User already exists with that UserID" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="103b" sfgname="" sfgmessage="UserID is already tied to another customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="103c" sfgname="" sfgmessage="Customer is already tied to a UserID" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="104" sfgname="" sfgmessage="Could not find user to update" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="105" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="106" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="107" sfgname="" sfgmessage="Could not find a customer matching supplied customer number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="107a" sfgname="" sfgmessage="Validation UserID does not match email address on customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="107b" sfgname="" sfgmessage="Supplied ZIP did not match customer's ZIP" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="108" sfgname="" sfgmessage="No customer number was supplied; add user aborted" ahcode="0" ahname="" ahmessage="Member id was not provided or the username does not exists." />
+    <message sfgcode="109" sfgname="" sfgmessage="customer number not valid" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="111" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="112" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="113" sfgname="" sfgmessage="Could not find a customer matching supplied customer number" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="114" sfgname="" sfgmessage="Supplied ZIP did not match customer's ZIP" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="115" sfgname="" sfgmessage="UserID does not match email address on customer" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="116" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="117" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="118" sfgname="" sfgmessage="Could not find a customer matching supplied userid (email)" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="119" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="120" sfgname="" sfgmessage="Internal execution error" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="121" sfgname="" sfgmessage="No response trying to update user info" ahcode="0" ahname="" ahmessage="undefined" />
+    <message sfgcode="122" sfgname="" sfgmessage="Miscellaneous error updating user" ahcode="0" ahname="" ahmessage="undefined" />
+  </service>
+</errorlist>

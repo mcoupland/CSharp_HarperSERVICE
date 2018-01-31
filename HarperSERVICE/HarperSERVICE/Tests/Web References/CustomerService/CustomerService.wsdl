@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="LoginOnly">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enc_username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enc_password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="log_attempt" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginOnlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginOnlyResult" type="tns:ResponseObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResponseObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="tns:tbl_Customer" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:tbl_AddressCustomer" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetMembership" type="tns:tbl_NetMembership" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tbl_Customer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SfgId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="MembershipType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MembershipExpires" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusCustNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusQuickFillCustNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusSecNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusCustType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPAFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPALastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPAPhone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPAPhone1Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusCompany" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="addID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="addSeasonID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusSeasonStart" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusSeasonEnd" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="addAltAdd1ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPrefix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPhone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPhone1Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPhone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPhone2Ext" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusMobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusUserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusIsCharterMem" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusNextQClubCardDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusTempID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusSecQClubCardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusUserLastUpdated" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusDateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusDateUpdated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusIsDeleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPriFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPriLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusNickname" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusSex" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusDOB" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusDisplayName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusHasDisplayName" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusDisplayNameUpdated" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusAffiliation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusMemberSince" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusAppStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusComplimentsOf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusTrialCardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusArchiveUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusArchiveEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusEncryptedPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPasswordSalt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusArchiveDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="csoCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusLocalAccount" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pzmId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="pzcId" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cusSecondEmail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusStormPostPrimaryID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusStormPostSecondaryID" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tbl_AddressCustomer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="addID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="addAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addAddress3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="addTempID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="addDateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="addDateUpdated" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tbl_NetMembership">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cusID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="mtyCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="nmbDateStart" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="nmbDateEnd" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="nmbDateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="nmbRenewalCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncMembershipWithSFG">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enc_username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SyncMembershipWithSFGResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SyncMembershipWithSFGResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enc_username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enc_password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="log_attempt" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:ResponseObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrefixes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPrefixesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrefixesResult" type="tns:ArrayOfPrefix" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrefix">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prefix" nillable="true" type="tns:Prefix" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prefix">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="displayname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sfgcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSuffixes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSuffixesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuffixesResult" type="tns:ArrayOfSuffix" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSuffix">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Suffix" nillable="true" type="tns:Suffix" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Suffix">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="displayname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sfgcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetISOCountries">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetISOCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetISOCountriesResult" type="tns:ArrayOfISO3166" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfISO3166">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ISO3166" nillable="true" type="tns:ISO3166" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ISO3166">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alpha2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Alpha3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numeric" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Level1_Subdivision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Level2_Subdivision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentId" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisplayWeight" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SFGCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeoType" type="tns:GeographicType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="GeographicType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Country" />
+          <s:enumeration value="Level1_Subdivision" />
+          <s:enumeration value="Level2_Subdivision" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetISORegions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParentAlpha2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetISORegionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetISORegionsResult" type="tns:ArrayOfISO3166" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOffer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keycode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOfferResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOfferResult" type="tns:OfferResponseObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OfferResponseObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResponseCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RenewalOffers" type="tns:ArrayOfRenewalOffer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRenewalOffer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RenewalOffer" nillable="true" type="tns:RenewalOffer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RenewalOffer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="KeyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublicationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubRenewalFlag" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionTerm" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CashOrCreditOffer" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrossValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartIssue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberFreeIssues" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartBillingIssue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberGraceIssues" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfInstallments" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Postage" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IsUserNameAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsUserNameAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsUserNameAvailableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogAppNames">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAppEventLogAppNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogAppNamesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppEventLogSeverities">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAppEventLogSeveritiesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogSeveritiesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogEventNames">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAppEventLogEventNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogEventNamesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogsByUserNameResult" type="tns:ArrayOfTbl_AppEventLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTbl_AppEventLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tbl_AppEventLog" nillable="true" type="tns:tbl_AppEventLog" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tbl_AppEventLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="aelID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelAppName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelEvent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelMessage1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelMessage2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelMessage3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="aelDateCreated" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelSeverity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aelSection" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAppEventLogsByAppName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsByAppNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogsByAppNameResult" type="tns:ArrayOfTbl_AppEventLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsBySeverity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="severity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsBySeverityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogsBySeverityResult" type="tns:ArrayOfTbl_AppEventLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsByEventName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eventname" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="limit" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAppEventLogsByEventNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAppEventLogsByEventNameResult" type="tns:ArrayOfTbl_AppEventLog" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubscribeNewUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salutation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="middleinitial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="professionaltitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccnum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccexpmonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccexpyear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="amountpaid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccaddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cccity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccstate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccpostalcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pubcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="keycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subscriptionlength" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customertype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="expiredate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startdate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newsletters" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobilephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="secondemail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="methodofpayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cccountry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ccaddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="screenname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iscomp" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubscribeNewUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscribeNewUserResult" type="tns:ResponseObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginOnlySoapIn">
+    <wsdl:part name="parameters" element="tns:LoginOnly" />
+  </wsdl:message>
+  <wsdl:message name="LoginOnlySoapOut">
+    <wsdl:part name="parameters" element="tns:LoginOnlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SyncMembershipWithSFGSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncMembershipWithSFG" />
+  </wsdl:message>
+  <wsdl:message name="SyncMembershipWithSFGSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncMembershipWithSFGResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrefixesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrefixes" />
+  </wsdl:message>
+  <wsdl:message name="GetPrefixesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrefixesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSuffixesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSuffixes" />
+  </wsdl:message>
+  <wsdl:message name="GetSuffixesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSuffixesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetISOCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetISOCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetISOCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetISORegionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetISORegions" />
+  </wsdl:message>
+  <wsdl:message name="GetISORegionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetISORegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOffer" />
+  </wsdl:message>
+  <wsdl:message name="GetOfferSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOfferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsUserNameAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:IsUserNameAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IsUserNameAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:IsUserNameAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogAppNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogAppNames" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogAppNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogAppNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogSeveritiesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogSeverities" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogSeveritiesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogSeveritiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogEventNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogEventNames" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogEventNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogEventNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByAppNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByAppName" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByAppNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByAppNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsBySeveritySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsBySeverity" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsBySeveritySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsBySeverityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByEventNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByEventName" />
+  </wsdl:message>
+  <wsdl:message name="GetAppEventLogsByEventNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAppEventLogsByEventNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubscribeNewUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SubscribeNewUser" />
+  </wsdl:message>
+  <wsdl:message name="SubscribeNewUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SubscribeNewUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CustomerServiceSoap">
+    <wsdl:operation name="LoginOnly">
+      <wsdl:input message="tns:LoginOnlySoapIn" />
+      <wsdl:output message="tns:LoginOnlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SyncMembershipWithSFG">
+      <wsdl:input message="tns:SyncMembershipWithSFGSoapIn" />
+      <wsdl:output message="tns:SyncMembershipWithSFGSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrefixes">
+      <wsdl:input message="tns:GetPrefixesSoapIn" />
+      <wsdl:output message="tns:GetPrefixesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuffixes">
+      <wsdl:input message="tns:GetSuffixesSoapIn" />
+      <wsdl:output message="tns:GetSuffixesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountries">
+      <wsdl:input message="tns:GetISOCountriesSoapIn" />
+      <wsdl:output message="tns:GetISOCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetISORegions">
+      <wsdl:input message="tns:GetISORegionsSoapIn" />
+      <wsdl:output message="tns:GetISORegionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <wsdl:input message="tns:GetOfferSoapIn" />
+      <wsdl:output message="tns:GetOfferSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserNameAvailable">
+      <wsdl:input message="tns:IsUserNameAvailableSoapIn" />
+      <wsdl:output message="tns:IsUserNameAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogAppNames">
+      <wsdl:input message="tns:GetAppEventLogAppNamesSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogAppNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogSeverities">
+      <wsdl:input message="tns:GetAppEventLogSeveritiesSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogSeveritiesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogEventNames">
+      <wsdl:input message="tns:GetAppEventLogEventNamesSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogEventNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByUserName">
+      <wsdl:input message="tns:GetAppEventLogsByUserNameSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogsByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByAppName">
+      <wsdl:input message="tns:GetAppEventLogsByAppNameSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogsByAppNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsBySeverity">
+      <wsdl:input message="tns:GetAppEventLogsBySeveritySoapIn" />
+      <wsdl:output message="tns:GetAppEventLogsBySeveritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByEventName">
+      <wsdl:input message="tns:GetAppEventLogsByEventNameSoapIn" />
+      <wsdl:output message="tns:GetAppEventLogsByEventNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeNewUser">
+      <wsdl:input message="tns:SubscribeNewUserSoapIn" />
+      <wsdl:output message="tns:SubscribeNewUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerServiceSoap" type="tns:CustomerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginOnly">
+      <soap:operation soapAction="http://tempuri.org/LoginOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMembershipWithSFG">
+      <soap:operation soapAction="http://tempuri.org/SyncMembershipWithSFG" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrefixes">
+      <soap:operation soapAction="http://tempuri.org/GetPrefixes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuffixes">
+      <soap:operation soapAction="http://tempuri.org/GetSuffixes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountries">
+      <soap:operation soapAction="http://tempuri.org/GetISOCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISORegions">
+      <soap:operation soapAction="http://tempuri.org/GetISORegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <soap:operation soapAction="http://tempuri.org/GetOffer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserNameAvailable">
+      <soap:operation soapAction="http://tempuri.org/IsUserNameAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogAppNames">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogAppNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogSeverities">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogSeverities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogEventNames">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogEventNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByUserName">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogsByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByAppName">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogsByAppName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsBySeverity">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogsBySeverity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByEventName">
+      <soap:operation soapAction="http://tempuri.org/GetAppEventLogsByEventName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeNewUser">
+      <soap:operation soapAction="http://tempuri.org/SubscribeNewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CustomerServiceSoap12" type="tns:CustomerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginOnly">
+      <soap12:operation soapAction="http://tempuri.org/LoginOnly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SyncMembershipWithSFG">
+      <soap12:operation soapAction="http://tempuri.org/SyncMembershipWithSFG" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrefixes">
+      <soap12:operation soapAction="http://tempuri.org/GetPrefixes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuffixes">
+      <soap12:operation soapAction="http://tempuri.org/GetSuffixes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISOCountries">
+      <soap12:operation soapAction="http://tempuri.org/GetISOCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetISORegions">
+      <soap12:operation soapAction="http://tempuri.org/GetISORegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOffer">
+      <soap12:operation soapAction="http://tempuri.org/GetOffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserNameAvailable">
+      <soap12:operation soapAction="http://tempuri.org/IsUserNameAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogAppNames">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogAppNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogSeverities">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogSeverities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogEventNames">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogEventNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByUserName">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogsByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByAppName">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogsByAppName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsBySeverity">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogsBySeverity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppEventLogsByEventName">
+      <soap12:operation soapAction="http://tempuri.org/GetAppEventLogsByEventName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeNewUser">
+      <soap12:operation soapAction="http://tempuri.org/SubscribeNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port name="CustomerServiceSoap" binding="tns:CustomerServiceSoap">
+      <soap:address location="http://localhost:3105/CustomerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CustomerServiceSoap12" binding="tns:CustomerServiceSoap12">
+      <soap12:address location="http://localhost:3105/CustomerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
